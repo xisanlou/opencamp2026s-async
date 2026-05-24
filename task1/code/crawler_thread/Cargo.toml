@@ -1,0 +1,11 @@
+[package]
+name = "crawler_thread"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+reqwest = {version = "0.13", features = ["json", "stream", "blocking"]}
+url = "2.5"
+anyhow = "1.0"
+sysinfo = "0.39"
+
