@@ -1,0 +1,3443 @@
+// MIR for `crawl::{closure#0}` 0 coroutine_post-transform
+/* coroutine_layout = CoroutineLayout {
+    field_tys: {
+        _s0: CoroutineSavedTy {
+            ty: std::string::String,
+            source_info: SourceInfo {
+                span: src/main.rs:41:16: 41:20 (#0),
+                scope: scope[0],
+            },
+            ignore_for_traits: false,
+        },
+        _s1: CoroutineSavedTy {
+            ty: reqwest::Url,
+            source_info: SourceInfo {
+                span: src/main.rs:41:30: 41:33 (#0),
+                scope: scope[1],
+            },
+            ignore_for_traits: false,
+        },
+        _s2: CoroutineSavedTy {
+            ty: reqwest::Client,
+            source_info: SourceInfo {
+                span: src/main.rs:41:40: 41:46 (#0),
+                scope: scope[2],
+            },
+            ignore_for_traits: false,
+        },
+        _s3: CoroutineSavedTy {
+            ty: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>,
+            source_info: SourceInfo {
+                span: src/main.rs:41:56: 41:62 (#0),
+                scope: scope[3],
+            },
+            ignore_for_traits: false,
+        },
+        _s4: CoroutineSavedTy {
+            ty: std::time::Instant,
+            source_info: SourceInfo {
+                span: src/main.rs:43:9: 43:12 (#0),
+                scope: scope[4],
+            },
+            ignore_for_traits: false,
+        },
+        _s5: CoroutineSavedTy {
+            ty: reqwest::Response,
+            source_info: SourceInfo {
+                span: src/main.rs:45:9: 45:17 (#0),
+                scope: scope[7],
+            },
+            ignore_for_traits: false,
+        },
+        _s6: CoroutineSavedTy {
+            ty: reqwest::async_impl::client::Pending,
+            source_info: SourceInfo {
+                span: src/main.rs:45:20: 49:15 (#127),
+                scope: scope[7],
+            },
+            ignore_for_traits: false,
+        },
+        _s7: CoroutineSavedTy {
+            ty: Coroutine(
+                DefId(20:757 ~ reqwest[e8d0]::async_impl::response::{impl#0}::text::{closure#0}),
+                [
+                    (),
+                    std::future::ResumeTy,
+                    (),
+                    std::result::Result<std::string::String, reqwest::Error>,
+                    (reqwest::Response,),
+                ],
+            ),
+            source_info: SourceInfo {
+                span: src/main.rs:61:16: 63:15 (#135),
+                scope: scope[8],
+            },
+            ignore_for_traits: false,
+        },
+        _s8: CoroutineSavedTy {
+            ty: Coroutine(
+                DefId(57:9909 ~ tokio[10b8]::sync::mpsc::bounded::{impl#3}::send::{closure#0}),
+                [
+                    (std::string::String, std::string::String),
+                    (),
+                    std::future::ResumeTy,
+                    (),
+                    std::result::Result<(), tokio::sync::mpsc::error::SendError<(std::string::String, std::string::String)>>,
+                    (&'{erased} tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>, (std::string::String, std::string::String)),
+                ],
+            ),
+            source_info: SourceInfo {
+                span: src/main.rs:67:21: 67:60 (#139),
+                scope: scope[28],
+            },
+            ignore_for_traits: false,
+        },
+        _s9: CoroutineSavedTy {
+            ty: bool,
+            source_info: SourceInfo {
+                span: src/main.rs:97:1: 97:2 (#0),
+                scope: scope[0],
+            },
+            ignore_for_traits: false,
+        },
+        _s10: CoroutineSavedTy {
+            ty: bool,
+            source_info: SourceInfo {
+                span: src/main.rs:97:1: 97:2 (#0),
+                scope: scope[0],
+            },
+            ignore_for_traits: false,
+        },
+    },
+    variant_fields: {
+        Unresumed(0): [],
+        Returned (1): [],
+        Panicked (2): [],
+        Suspend0 (3): [_s0, _s1, _s2, _s3, _s4, _s6],
+        Suspend1 (4): [_s0, _s1, _s2, _s3, _s4, _s5, _s7, _s9],
+        Suspend2 (5): [_s0, _s1, _s2, _s3, _s4, _s5, _s8, _s9, _s10],
+    },
+    storage_conflicts: BitMatrix(11x11) {
+        (_s0, _s0),
+        (_s0, _s1),
+        (_s0, _s2),
+        (_s0, _s3),
+        (_s0, _s4),
+        (_s0, _s5),
+        (_s0, _s6),
+        (_s0, _s7),
+        (_s0, _s8),
+        (_s0, _s9),
+        (_s0, _s10),
+        (_s1, _s0),
+        (_s1, _s1),
+        (_s1, _s2),
+        (_s1, _s3),
+        (_s1, _s4),
+        (_s1, _s5),
+        (_s1, _s6),
+        (_s1, _s7),
+        (_s1, _s8),
+        (_s1, _s9),
+        (_s1, _s10),
+        (_s2, _s0),
+        (_s2, _s1),
+        (_s2, _s2),
+        (_s2, _s3),
+        (_s2, _s4),
+        (_s2, _s5),
+        (_s2, _s6),
+        (_s2, _s7),
+        (_s2, _s8),
+        (_s2, _s9),
+        (_s2, _s10),
+        (_s3, _s0),
+        (_s3, _s1),
+        (_s3, _s2),
+        (_s3, _s3),
+        (_s3, _s4),
+        (_s3, _s5),
+        (_s3, _s6),
+        (_s3, _s7),
+        (_s3, _s8),
+        (_s3, _s9),
+        (_s3, _s10),
+        (_s4, _s0),
+        (_s4, _s1),
+        (_s4, _s2),
+        (_s4, _s3),
+        (_s4, _s4),
+        (_s4, _s5),
+        (_s4, _s6),
+        (_s4, _s7),
+        (_s4, _s8),
+        (_s4, _s9),
+        (_s4, _s10),
+        (_s5, _s0),
+        (_s5, _s1),
+        (_s5, _s2),
+        (_s5, _s3),
+        (_s5, _s4),
+        (_s5, _s5),
+        (_s5, _s7),
+        (_s5, _s8),
+        (_s5, _s9),
+        (_s5, _s10),
+        (_s6, _s0),
+        (_s6, _s1),
+        (_s6, _s2),
+        (_s6, _s3),
+        (_s6, _s4),
+        (_s6, _s6),
+        (_s6, _s9),
+        (_s6, _s10),
+        (_s7, _s0),
+        (_s7, _s1),
+        (_s7, _s2),
+        (_s7, _s3),
+        (_s7, _s4),
+        (_s7, _s5),
+        (_s7, _s7),
+        (_s7, _s9),
+        (_s7, _s10),
+        (_s8, _s0),
+        (_s8, _s1),
+        (_s8, _s2),
+        (_s8, _s3),
+        (_s8, _s4),
+        (_s8, _s5),
+        (_s8, _s8),
+        (_s8, _s9),
+        (_s8, _s10),
+        (_s9, _s0),
+        (_s9, _s1),
+        (_s9, _s2),
+        (_s9, _s3),
+        (_s9, _s4),
+        (_s9, _s5),
+        (_s9, _s6),
+        (_s9, _s7),
+        (_s9, _s8),
+        (_s9, _s9),
+        (_s9, _s10),
+        (_s10, _s0),
+        (_s10, _s1),
+        (_s10, _s2),
+        (_s10, _s3),
+        (_s10, _s4),
+        (_s10, _s5),
+        (_s10, _s6),
+        (_s10, _s7),
+        (_s10, _s8),
+        (_s10, _s9),
+        (_s10, _s10),
+    },
+} */
+
+fn crawl::{closure#0}(_1: {async fn body of crawl()}, _2: &mut std::task::Context<'_>) -> std::task::Poll<Result<u128, anyhow::Error>> {
+    debug _task_context => _2;
+    debug name => (_1.0: std::string::String);
+    debug url => (_1.1: reqwest::Url);
+    debug client => (_1.2: reqwest::Client);
+    debug sender => (_1.3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>);
+    let mut _0: std::task::Poll<std::result::Result<u128, anyhow::Error>>;
+    let _3: std::string::String;
+    let _7: ();
+    let _8: ();
+    let mut _9: std::fmt::Arguments<'_>;
+    let mut _11: &&std::string::String;
+    let _12: &std::string::String;
+    let mut _14: core::fmt::rt::Argument<'_>;
+    let mut _15: &&std::string::String;
+    let mut _16: &[u8; 43];
+    let _17: &[u8; 43];
+    let mut _18: &[core::fmt::rt::Argument<'_>; 1];
+    let _19: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _22: std::ops::ControlFlow<std::result::Result<std::convert::Infallible, anyhow::Error>, reqwest::Response>;
+    let mut _23: std::result::Result<reqwest::Response, anyhow::Error>;
+    let mut _24: std::result::Result<reqwest::Response, reqwest::Error>;
+    let mut _25: reqwest::async_impl::client::Pending;
+    let mut _26: reqwest::async_impl::client::Pending;
+    let mut _27: reqwest::RequestBuilder;
+    let mut _28: reqwest::RequestBuilder;
+    let mut _29: &reqwest::Client;
+    let mut _30: reqwest::Url;
+    let mut _31: &reqwest::Url;
+    let mut _32: &str;
+    let mut _33: &&str;
+    let mut _35: ();
+    let _36: ();
+    let mut _37: std::task::Poll<std::result::Result<reqwest::Response, reqwest::Error>>;
+    let mut _38: std::pin::Pin<&mut reqwest::async_impl::client::Pending>;
+    let mut _39: &mut reqwest::async_impl::client::Pending;
+    let mut _40: &mut reqwest::async_impl::client::Pending;
+    let mut _41: &mut std::task::Context<'_>;
+    let mut _42: &mut std::task::Context<'_>;
+    let mut _43: &mut std::task::Context<'_>;
+    let mut _44: isize;
+    let mut _46: !;
+    let mut _47: &mut std::task::Context<'_>;
+    let mut _48: ();
+    let mut _49: std::string::String;
+    let mut _50: std::string::String;
+    let mut _51: std::fmt::Arguments<'_>;
+    let mut _53: &&reqwest::Url;
+    let _54: &reqwest::Url;
+    let mut _56: core::fmt::rt::Argument<'_>;
+    let mut _57: &&reqwest::Url;
+    let mut _58: &[u8; 24];
+    let _59: &[u8; 24];
+    let mut _60: &[core::fmt::rt::Argument<'_>; 1];
+    let _61: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _62: isize;
+    let mut _64: !;
+    let mut _65: std::result::Result<std::convert::Infallible, anyhow::Error>;
+    let _67: ();
+    let _68: ();
+    let mut _69: std::fmt::Arguments<'_>;
+    let mut _71: &&std::string::String;
+    let _72: &std::string::String;
+    let mut _74: core::fmt::rt::Argument<'_>;
+    let mut _75: &&std::string::String;
+    let mut _76: &[u8; 68];
+    let _77: &[u8; 68];
+    let mut _78: &[core::fmt::rt::Argument<'_>; 1];
+    let _79: &[core::fmt::rt::Argument<'_>; 1];
+    let _80: ();
+    let mut _81: bool;
+    let mut _82: &reqwest::StatusCode;
+    let _83: reqwest::StatusCode;
+    let mut _84: &reqwest::Response;
+    let mut _85: !;
+    let mut _86: anyhow::Error;
+    let mut _88: std::ops::ControlFlow<std::result::Result<std::convert::Infallible, anyhow::Error>, std::string::String>;
+    let mut _89: std::result::Result<std::string::String, anyhow::Error>;
+    let mut _90: std::result::Result<std::string::String, reqwest::Error>;
+    let mut _91: {async fn body of reqwest::Response::text()};
+    let mut _92: {async fn body of reqwest::Response::text()};
+    let mut _93: reqwest::Response;
+    let _95: ();
+    let mut _96: std::task::Poll<std::result::Result<std::string::String, reqwest::Error>>;
+    let mut _97: std::pin::Pin<&mut {async fn body of reqwest::Response::text()}>;
+    let mut _98: &mut {async fn body of reqwest::Response::text()};
+    let mut _99: &mut {async fn body of reqwest::Response::text()};
+    let mut _100: &mut std::task::Context<'_>;
+    let mut _101: &mut std::task::Context<'_>;
+    let mut _102: &mut std::task::Context<'_>;
+    let mut _103: isize;
+    let mut _105: !;
+    let mut _106: &mut std::task::Context<'_>;
+    let mut _107: ();
+    let mut _108: isize;
+    let mut _110: !;
+    let mut _111: std::result::Result<std::convert::Infallible, anyhow::Error>;
+    let _113: ();
+    let _114: ();
+    let mut _115: std::fmt::Arguments<'_>;
+    let mut _117: &&std::string::String;
+    let _118: &std::string::String;
+    let mut _120: core::fmt::rt::Argument<'_>;
+    let mut _121: &&std::string::String;
+    let mut _122: &[u8; 67];
+    let _123: &[u8; 67];
+    let mut _124: &[core::fmt::rt::Argument<'_>; 1];
+    let _125: &[core::fmt::rt::Argument<'_>; 1];
+    let _126: ();
+    let mut _127: std::result::Result<(), tokio::sync::mpsc::error::SendError<(std::string::String, std::string::String)>>;
+    let mut _128: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()};
+    let mut _129: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()};
+    let mut _130: &tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>;
+    let mut _131: (std::string::String, std::string::String);
+    let mut _132: std::string::String;
+    let mut _133: &std::string::String;
+    let mut _134: std::string::String;
+    let _136: ();
+    let mut _137: std::task::Poll<std::result::Result<(), tokio::sync::mpsc::error::SendError<(std::string::String, std::string::String)>>>;
+    let mut _138: std::pin::Pin<&mut {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()}>;
+    let mut _139: &mut {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()};
+    let mut _140: &mut {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()};
+    let mut _141: &mut std::task::Context<'_>;
+    let mut _142: &mut std::task::Context<'_>;
+    let mut _143: &mut std::task::Context<'_>;
+    let mut _144: isize;
+    let mut _146: !;
+    let mut _147: &mut std::task::Context<'_>;
+    let mut _148: ();
+    let mut _149: isize;
+    let mut _150: !;
+    let _151: ();
+    let _152: ();
+    let mut _153: std::fmt::Arguments<'_>;
+    let mut _155: &&std::string::String;
+    let _156: &std::string::String;
+    let mut _158: core::fmt::rt::Argument<'_>;
+    let mut _159: &&std::string::String;
+    let mut _160: &[u8; 30];
+    let _161: &[u8; 30];
+    let mut _162: &[core::fmt::rt::Argument<'_>; 1];
+    let _163: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _164: anyhow::Error;
+    let mut _165: anyhow::Error;
+    let _166: ();
+    let _167: ();
+    let mut _168: std::fmt::Arguments<'_>;
+    let mut _170: &&std::string::String;
+    let _171: &std::string::String;
+    let mut _173: core::fmt::rt::Argument<'_>;
+    let mut _174: &&std::string::String;
+    let mut _175: &[u8; 65];
+    let _176: &[u8; 65];
+    let mut _177: &[core::fmt::rt::Argument<'_>; 1];
+    let _178: &[core::fmt::rt::Argument<'_>; 1];
+    let _180: ();
+    let mut _181: &mut sysinfo::System;
+    let mut _183: u32;
+    let _187: ();
+    let mut _188: bool;
+    let mut _189: std::option::Option<&sysinfo::Process>;
+    let mut _190: &sysinfo::System;
+    let mut _191: sysinfo::Pid;
+    let mut _192: isize;
+    let mut _194: u64;
+    let mut _195: u64;
+    let mut _196: &sysinfo::Process;
+    let mut _197: bool;
+    let mut _198: bool;
+    let mut _199: u64;
+    let mut _200: u64;
+    let mut _201: &sysinfo::Process;
+    let mut _202: bool;
+    let mut _203: bool;
+    let mut _204: bool;
+    let mut _205: bool;
+    let _207: ();
+    let _208: ();
+    let mut _209: std::fmt::Arguments<'_>;
+    let mut _211: &&std::string::String;
+    let _212: &std::string::String;
+    let mut _214: core::fmt::rt::Argument<'_>;
+    let mut _215: &&std::string::String;
+    let mut _216: &[u8; 45];
+    let _217: &[u8; 45];
+    let mut _218: &[core::fmt::rt::Argument<'_>; 1];
+    let _219: &[core::fmt::rt::Argument<'_>; 1];
+    let _220: ();
+    let mut _221: std::time::Duration;
+    let mut _222: !;
+    let _223: ();
+    let mut _224: !;
+    let mut _226: &std::time::Duration;
+    let _227: std::time::Duration;
+    let mut _228: &std::time::Instant;
+    let _229: ();
+    let _230: ();
+    let mut _231: std::fmt::Arguments<'_>;
+    let mut _233: &std::string::String;
+    let mut _234: &u128;
+    let mut _235: &u64;
+    let mut _236: &u64;
+    let mut _238: core::fmt::rt::Argument<'_>;
+    let mut _239: &std::string::String;
+    let mut _240: core::fmt::rt::Argument<'_>;
+    let mut _241: &u128;
+    let mut _242: core::fmt::rt::Argument<'_>;
+    let mut _243: &u64;
+    let mut _244: core::fmt::rt::Argument<'_>;
+    let mut _245: &u64;
+    let mut _246: &[u8; 58];
+    let _247: &[u8; 58];
+    let mut _248: &[core::fmt::rt::Argument<'_>; 4];
+    let _249: &[core::fmt::rt::Argument<'_>; 4];
+    let mut _250: u128;
+    let mut _251: &std::time::Duration;
+    let _252: std::time::Duration;
+    let mut _253: &std::time::Instant;
+    let mut _254: &&std::string::String;
+    let mut _255: &&reqwest::Url;
+    let mut _256: &&std::string::String;
+    let mut _257: &&std::string::String;
+    let mut _258: &&std::string::String;
+    let mut _259: &&std::string::String;
+    let mut _260: &&std::string::String;
+    let mut _261: &std::string::String;
+    let mut _262: &u128;
+    let mut _263: &u64;
+    let mut _264: &u64;
+    let mut _265: bool;
+    let mut _266: bool;
+    let mut _267: bool;
+    let mut _268: isize;
+    let mut _269: isize;
+    let mut _270: isize;
+    let mut _271: isize;
+    let mut _272: isize;
+    let mut _273: isize;
+    let mut _274: isize;
+    let mut _275: isize;
+    let mut _276: isize;
+    let mut _277: isize;
+    let mut _278: isize;
+    let mut _279: isize;
+    let mut _280: isize;
+    let mut _281: isize;
+    let mut _282: isize;
+    let mut _283: isize;
+    let mut _284: isize;
+    let mut _285: isize;
+    let mut _286: isize;
+    let mut _287: isize;
+    let mut _288: isize;
+    let mut _289: isize;
+    let mut _290: isize;
+    let mut _291: isize;
+    let mut _292: isize;
+    let mut _293: isize;
+    let mut _294: isize;
+    let mut _295: isize;
+    let mut _296: isize;
+    let mut _297: isize;
+    let mut _298: isize;
+    let mut _299: isize;
+    let mut _300: std::result::Result<u128, anyhow::Error>;
+    scope 1 {
+        debug name => ((_1 as variant#5).0: std::string::String);
+        let _4: reqwest::Url;
+        scope 2 {
+            debug url => ((_1 as variant#5).1: reqwest::Url);
+            let _5: reqwest::Client;
+            scope 3 {
+                debug client => ((_1 as variant#5).2: reqwest::Client);
+                let _6: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>;
+                scope 4 {
+                    debug sender => ((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>);
+                    let _10: (&&std::string::String,);
+                    let _20: std::time::Instant;
+                    scope 5 {
+                        debug args => _10;
+                        let _13: [core::fmt::rt::Argument<'_>; 1];
+                        scope 6 {
+                            debug args => _13;
+                        }
+                    }
+                    scope 7 {
+                        debug now => ((_1 as variant#5).4: std::time::Instant);
+                        let _21: reqwest::Response;
+                        let mut _34: reqwest::async_impl::client::Pending;
+                        let _52: (&&reqwest::Url,);
+                        let _63: std::result::Result<std::convert::Infallible, anyhow::Error>;
+                        let _66: reqwest::Response;
+                        scope 8 {
+                            debug response => ((_1 as variant#5).5: reqwest::Response);
+                            let _70: (&&std::string::String,);
+                            let _87: std::string::String;
+                            let mut _94: {async fn body of reqwest::Response::text()};
+                            let _109: std::result::Result<std::convert::Infallible, anyhow::Error>;
+                            let _112: std::string::String;
+                            scope 17 {
+                                debug args => _70;
+                                let _73: [core::fmt::rt::Argument<'_>; 1];
+                                scope 18 {
+                                    debug args => _73;
+                                }
+                            }
+                            scope 19 {
+                                debug body => _87;
+                                let _116: (&&std::string::String,);
+                                let _169: (&&std::string::String,);
+                                let mut _179: sysinfo::System;
+                                scope 26 {
+                                    debug args => _116;
+                                    let _119: [core::fmt::rt::Argument<'_>; 1];
+                                    scope 27 {
+                                        debug args => _119;
+                                    }
+                                }
+                                scope 28 {
+                                    let mut _135: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()};
+                                    let _154: (&&std::string::String,);
+                                    scope 29 {
+                                        debug __awaitee => ((_1 as variant#5).6: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()});
+                                        let _145: std::result::Result<(), tokio::sync::mpsc::error::SendError<(std::string::String, std::string::String)>>;
+                                        scope 30 {
+                                            debug result => _145;
+                                        }
+                                    }
+                                    scope 31 {
+                                        debug args => _154;
+                                        let _157: [core::fmt::rt::Argument<'_>; 1];
+                                        scope 32 {
+                                            debug args => _157;
+                                        }
+                                    }
+                                }
+                                scope 33 {
+                                    debug args => _169;
+                                    let _172: [core::fmt::rt::Argument<'_>; 1];
+                                    scope 34 {
+                                        debug args => _172;
+                                    }
+                                }
+                                scope 35 {
+                                    debug sys => _179;
+                                    let _182: sysinfo::Pid;
+                                    scope 36 {
+                                        debug pid => _182;
+                                        let mut _184: bool;
+                                        scope 37 {
+                                            debug pr_pid => _184;
+                                            let mut _185: u64;
+                                            scope 38 {
+                                                debug mem_use => _185;
+                                                let mut _186: u64;
+                                                scope 39 {
+                                                    debug vmem_use => _186;
+                                                    let _225: u128;
+                                                    scope 40 {
+                                                        debug process => _193;
+                                                        let _193: &sysinfo::Process;
+                                                        let _206: std::time::Duration;
+                                                        scope 41 {
+                                                            debug one_sec => _206;
+                                                            let _210: (&&std::string::String,);
+                                                            scope 42 {
+                                                                debug args => _210;
+                                                                let _213: [core::fmt::rt::Argument<'_>; 1];
+                                                                scope 43 {
+                                                                    debug args => _213;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    scope 44 {
+                                                        debug delay_millis => _225;
+                                                        let _232: (&std::string::String, &u128, &u64, &u64);
+                                                        scope 45 {
+                                                            debug args => _232;
+                                                            let _237: [core::fmt::rt::Argument<'_>; 4];
+                                                            scope 46 {
+                                                                debug args => _237;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            scope 20 {
+                                debug __awaitee => ((_1 as variant#4).6: {async fn body of reqwest::Response::text()});
+                                let _104: std::result::Result<std::string::String, reqwest::Error>;
+                                scope 21 {
+                                    debug result => _104;
+                                }
+                            }
+                            scope 22 {
+                                debug residual => _109;
+                                scope 23 {
+                                }
+                            }
+                            scope 24 {
+                                debug val => _112;
+                                scope 25 {
+                                }
+                            }
+                        }
+                        scope 9 {
+                            debug __awaitee => ((_1 as variant#3).5: reqwest::async_impl::client::Pending);
+                            let _45: std::result::Result<reqwest::Response, reqwest::Error>;
+                            scope 10 {
+                                debug result => _45;
+                            }
+                        }
+                        scope 11 {
+                            debug args => _52;
+                            let _55: [core::fmt::rt::Argument<'_>; 1];
+                            scope 12 {
+                                debug args => _55;
+                            }
+                        }
+                        scope 13 {
+                            debug residual => _63;
+                            scope 14 {
+                            }
+                        }
+                        scope 15 {
+                            debug val => _66;
+                            scope 16 {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    bb0: {
+        ((_1 as variant#5).7: bool) = const false;
+        _267 = const false;
+        ((_1 as variant#5).8: bool) = const false;
+        nop;
+        ((_1 as variant#5).0: std::string::String) = move (_1.0: std::string::String);
+        nop;
+        ((_1 as variant#5).1: reqwest::Url) = move (_1.1: reqwest::Url);
+        nop;
+        ((_1 as variant#5).2: reqwest::Client) = move (_1.2: reqwest::Client);
+        nop;
+        ((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>) = move (_1.3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>);
+        StorageLive(_7);
+        StorageLive(_8);
+        StorageLive(_9);
+        StorageLive(_10);
+        StorageLive(_11);
+        StorageLive(_12);
+        _12 = &((_1 as variant#5).0: std::string::String);
+        _11 = &_12;
+        _10 = (move _11,);
+        StorageDead(_11);
+        StorageLive(_13);
+        StorageLive(_14);
+        StorageLive(_15);
+        _254 = no_retag copy (_10.0: &&std::string::String);
+        _15 = &(*_254);
+        _14 = core::fmt::rt::Argument::<'_>::new_display::<&String>(move _15) -> [return: bb1, unwind: bb303];
+    }
+
+    bb1: {
+        StorageDead(_15);
+        _13 = [move _14];
+        StorageDead(_14);
+        StorageLive(_16);
+        StorageLive(_17);
+        _17 = const b"\x16\xe5\x87\xbd\xe6\x95\xb0crawl, \xe5\x90\x8d\xe7\xa7\xb0\xef\xbc\x9a\xc0\x11\xef\xbc\x9a \xe5\xbc\x80\xe5\xa7\x8b\xe8\xbf\x9b\xe5\x85\xa5\n\x00";
+        _16 = &(*_17);
+        StorageLive(_18);
+        StorageLive(_19);
+        _19 = &_13;
+        _18 = &(*_19);
+        _9 = Arguments::<'_>::new::<43, 1>(move _16, move _18) -> [return: bb2, unwind: bb302];
+    }
+
+    bb2: {
+        StorageDead(_19);
+        StorageDead(_18);
+        StorageDead(_17);
+        StorageDead(_16);
+        _8 = std::io::_print(move _9) -> [return: bb3, unwind: bb304];
+    }
+
+    bb3: {
+        StorageDead(_9);
+        StorageDead(_13);
+        StorageDead(_12);
+        StorageDead(_10);
+        StorageDead(_8);
+        _7 = const ();
+        StorageDead(_7);
+        nop;
+        ((_1 as variant#5).4: std::time::Instant) = std::time::Instant::now() -> [return: bb4, unwind: bb301];
+    }
+
+    bb4: {
+        nop;
+        StorageLive(_22);
+        StorageLive(_23);
+        StorageLive(_24);
+        StorageLive(_25);
+        StorageLive(_26);
+        StorageLive(_27);
+        StorageLive(_28);
+        StorageLive(_29);
+        _29 = &((_1 as variant#5).2: reqwest::Client);
+        StorageLive(_30);
+        StorageLive(_31);
+        _31 = &((_1 as variant#5).1: reqwest::Url);
+        _30 = <Url as Clone>::clone(move _31) -> [return: bb5, unwind: bb297];
+    }
+
+    bb5: {
+        StorageDead(_31);
+        _28 = Client::get::<Url>(move _29, move _30) -> [return: bb6, unwind: bb296];
+    }
+
+    bb6: {
+        StorageDead(_30);
+        StorageDead(_29);
+        StorageLive(_32);
+        StorageLive(_33);
+        _33 = const {alloc11: &&str};
+        _32 = copy (*_33);
+        _27 = RequestBuilder::header::<&str, &str>(move _28, const "User-Agent", move _32) -> [return: bb7, unwind: bb291];
+    }
+
+    bb7: {
+        StorageDead(_32);
+        StorageDead(_28);
+        _26 = RequestBuilder::send(move _27) -> [return: bb8, unwind: bb290];
+    }
+
+    bb8: {
+        StorageDead(_27);
+        _25 = <reqwest::async_impl::client::Pending as IntoFuture>::into_future(move _26) -> [return: bb9, unwind: bb289];
+    }
+
+    bb9: {
+        StorageDead(_26);
+        PlaceMention(_25);
+        nop;
+        ((_1 as variant#3).5: reqwest::async_impl::client::Pending) = move _25;
+        goto -> bb10;
+    }
+
+    bb10: {
+        StorageLive(_36);
+        StorageLive(_37);
+        StorageLive(_38);
+        StorageLive(_39);
+        StorageLive(_40);
+        _40 = &mut ((_1 as variant#3).5: reqwest::async_impl::client::Pending);
+        _39 = &mut (*_40);
+        _38 = Pin::<&mut reqwest::async_impl::client::Pending>::new_unchecked(move _39) -> [return: bb11, unwind: bb282];
+    }
+
+    bb11: {
+        StorageDead(_39);
+        StorageLive(_41);
+        StorageLive(_42);
+        StorageLive(_43);
+        _43 = copy _2;
+        _42 = move _43;
+        goto -> bb12;
+    }
+
+    bb12: {
+        _41 = &mut (*_42);
+        StorageDead(_43);
+        _37 = <reqwest::async_impl::client::Pending as Future>::poll(move _38, move _41) -> [return: bb13, unwind: bb281];
+    }
+
+    bb13: {
+        StorageDead(_42);
+        StorageDead(_41);
+        StorageDead(_40);
+        StorageDead(_38);
+        PlaceMention(_37);
+        _44 = discriminant(_37);
+        switchInt(move _44) -> [0: bb16, 1: bb15, otherwise: bb14];
+    }
+
+    bb14: {
+        unreachable;
+    }
+
+    bb15: {
+        _36 = const ();
+        goto -> bb330;
+    }
+
+    bb16: {
+        StorageLive(_45);
+        _45 = move ((_37 as Ready).0: std::result::Result<reqwest::Response, reqwest::Error>);
+        _267 = const true;
+        _24 = move _45;
+        goto -> bb19;
+    }
+
+    bb17: {
+        StorageDead(_37);
+        StorageDead(_36);
+        StorageLive(_47);
+        StorageLive(_48);
+        _48 = ();
+        _0 = std::task::Poll::<Result<u128, anyhow::Error>>::Pending;
+        StorageDead(_22);
+        StorageDead(_23);
+        StorageDead(_24);
+        StorageDead(_25);
+        StorageDead(_33);
+        StorageDead(_47);
+        StorageDead(_48);
+        discriminant(_1) = 3;
+        return;
+    }
+
+    bb18: {
+        StorageDead(_48);
+        _2 = move _47;
+        StorageDead(_47);
+        _35 = const ();
+        goto -> bb10;
+    }
+
+    bb19: {
+        StorageDead(_45);
+        goto -> bb334;
+    }
+
+    bb20: {
+        StorageDead(_37);
+        StorageDead(_36);
+        drop(((_1 as variant#3).5: reqwest::async_impl::client::Pending)) -> [return: bb21, unwind: bb285];
+    }
+
+    bb21: {
+        nop;
+        StorageLive(_49);
+        StorageLive(_50);
+        StorageLive(_51);
+        StorageLive(_52);
+        StorageLive(_53);
+        StorageLive(_54);
+        _54 = &((_1 as variant#5).1: reqwest::Url);
+        _53 = &_54;
+        _52 = (move _53,);
+        StorageDead(_53);
+        StorageLive(_55);
+        StorageLive(_56);
+        StorageLive(_57);
+        _255 = no_retag copy (_52.0: &&reqwest::Url);
+        _57 = &(*_255);
+        _56 = core::fmt::rt::Argument::<'_>::new_display::<&Url>(move _57) -> [return: bb22, unwind: bb276];
+    }
+
+    bb22: {
+        StorageDead(_57);
+        _55 = [move _56];
+        StorageDead(_56);
+        StorageLive(_58);
+        StorageLive(_59);
+        _59 = const b"\x15Failed to fetch URL: \xc0\x00";
+        _58 = &(*_59);
+        StorageLive(_60);
+        StorageLive(_61);
+        _61 = &_55;
+        _60 = &(*_61);
+        _51 = Arguments::<'_>::new::<24, 1>(move _58, move _60) -> [return: bb23, unwind: bb275];
+    }
+
+    bb23: {
+        StorageDead(_61);
+        StorageDead(_60);
+        StorageDead(_59);
+        StorageDead(_58);
+        _50 = format(move _51) -> [return: bb24, unwind: bb277];
+    }
+
+    bb24: {
+        StorageDead(_55);
+        StorageDead(_54);
+        StorageDead(_52);
+        StorageDead(_51);
+        _49 = must_use::<String>(move _50) -> [return: bb25, unwind: bb274];
+    }
+
+    bb25: {
+        StorageDead(_50);
+        _267 = const false;
+        _23 = <Result<Response, reqwest::Error> as anyhow::Context<Response, reqwest::Error>>::context::<String>(move _24, move _49) -> [return: bb26, unwind: bb273];
+    }
+
+    bb26: {
+        StorageDead(_49);
+        _267 = const false;
+        StorageDead(_24);
+        _22 = <Result<Response, anyhow::Error> as Try>::branch(move _23) -> [return: bb27, unwind: bb272];
+    }
+
+    bb27: {
+        StorageDead(_23);
+        PlaceMention(_22);
+        _62 = discriminant(_22);
+        switchInt(move _62) -> [0: bb28, 1: bb29, otherwise: bb14];
+    }
+
+    bb28: {
+        StorageLive(_66);
+        _66 = move ((_22 as Continue).0: reqwest::Response);
+        ((_1 as variant#5).7: bool) = const true;
+        ((_1 as variant#5).5: reqwest::Response) = move _66;
+        goto -> bb31;
+    }
+
+    bb29: {
+        StorageLive(_63);
+        _63 = move ((_22 as Break).0: std::result::Result<std::convert::Infallible, anyhow::Error>);
+        StorageLive(_65);
+        _65 = move _63;
+        _300 = <Result<u128, anyhow::Error> as FromResidual<Result<Infallible, anyhow::Error>>>::from_residual(move _65) -> [return: bb30, unwind: bb268];
+    }
+
+    bb30: {
+        StorageDead(_65);
+        goto -> bb145;
+    }
+
+    bb31: {
+        StorageDead(_66);
+        goto -> bb338;
+    }
+
+    bb32: {
+        goto -> bb33;
+    }
+
+    bb33: {
+        StorageDead(_33);
+        StorageDead(_25);
+        StorageDead(_22);
+        StorageLive(_67);
+        StorageLive(_68);
+        StorageLive(_69);
+        StorageLive(_70);
+        StorageLive(_71);
+        StorageLive(_72);
+        _72 = &((_1 as variant#5).0: std::string::String);
+        _71 = &_72;
+        _70 = (move _71,);
+        StorageDead(_71);
+        StorageLive(_73);
+        StorageLive(_74);
+        StorageLive(_75);
+        _256 = no_retag copy (_70.0: &&std::string::String);
+        _75 = &(*_256);
+        _74 = core::fmt::rt::Argument::<'_>::new_display::<&String>(move _75) -> [return: bb34, unwind: bb265];
+    }
+
+    bb34: {
+        StorageDead(_75);
+        _73 = [move _74];
+        StorageDead(_74);
+        StorageLive(_76);
+        StorageLive(_77);
+        _77 = const b"\x16\xe5\x87\xbd\xe6\x95\xb0crawl, \xe5\x90\x8d\xe7\xa7\xb0\xef\xbc\x9a\xc0*\xef\xbc\x9a \xe7\xac\xac\xe4\xb8\x80\xe6\xac\xa1.await\xef\xbc\x88client.get\xef\xbc\x89\xe4\xb9\x8b\xe5\x90\x8e\n\x00";
+        _76 = &(*_77);
+        StorageLive(_78);
+        StorageLive(_79);
+        _79 = &_73;
+        _78 = &(*_79);
+        _69 = Arguments::<'_>::new::<68, 1>(move _76, move _78) -> [return: bb35, unwind: bb264];
+    }
+
+    bb35: {
+        StorageDead(_79);
+        StorageDead(_78);
+        StorageDead(_77);
+        StorageDead(_76);
+        _68 = std::io::_print(move _69) -> [return: bb36, unwind: bb266];
+    }
+
+    bb36: {
+        StorageDead(_69);
+        StorageDead(_73);
+        StorageDead(_72);
+        StorageDead(_70);
+        StorageDead(_68);
+        _67 = const ();
+        StorageDead(_67);
+        StorageLive(_80);
+        StorageLive(_81);
+        StorageLive(_82);
+        StorageLive(_83);
+        StorageLive(_84);
+        _84 = &((_1 as variant#5).5: reqwest::Response);
+        _83 = Response::status(move _84) -> [return: bb37, unwind: bb261];
+    }
+
+    bb37: {
+        _82 = &_83;
+        StorageDead(_84);
+        _81 = StatusCode::is_success(move _82) -> [return: bb38, unwind: bb262];
+    }
+
+    bb38: {
+        switchInt(move _81) -> [0: bb40, otherwise: bb39];
+    }
+
+    bb39: {
+        StorageDead(_82);
+        StorageDead(_83);
+        _80 = const ();
+        StorageDead(_81);
+        StorageDead(_80);
+        StorageLive(_87);
+        StorageLive(_88);
+        StorageLive(_89);
+        StorageLive(_90);
+        StorageLive(_91);
+        StorageLive(_92);
+        StorageLive(_93);
+        ((_1 as variant#5).7: bool) = const false;
+        _93 = move ((_1 as variant#5).5: reqwest::Response);
+        _92 = Response::text(move _93) -> [return: bb43, unwind: bb255];
+    }
+
+    bb40: {
+        StorageDead(_82);
+        StorageDead(_83);
+        StorageLive(_86);
+        _86 = anyhow::error::<impl anyhow::Error>::msg::<&str>(const "Failed to fetch website") -> [return: bb41, unwind: bb260];
+    }
+
+    bb41: {
+        _300 = Result::<u128, anyhow::Error>::Err(move _86);
+        goto -> bb42;
+    }
+
+    bb42: {
+        StorageDead(_86);
+        StorageDead(_81);
+        StorageDead(_80);
+        goto -> bb144;
+    }
+
+    bb43: {
+        StorageDead(_93);
+        _91 = <{async fn body of Response::text()} as IntoFuture>::into_future(move _92) -> [return: bb44, unwind: bb254];
+    }
+
+    bb44: {
+        StorageDead(_92);
+        PlaceMention(_91);
+        nop;
+        ((_1 as variant#4).6: {async fn body of reqwest::Response::text()}) = move _91;
+        goto -> bb45;
+    }
+
+    bb45: {
+        StorageLive(_95);
+        StorageLive(_96);
+        StorageLive(_97);
+        StorageLive(_98);
+        StorageLive(_99);
+        _99 = &mut ((_1 as variant#4).6: {async fn body of reqwest::Response::text()});
+        _98 = &mut (*_99);
+        _97 = Pin::<&mut {async fn body of Response::text()}>::new_unchecked(move _98) -> [return: bb46, unwind: bb247];
+    }
+
+    bb46: {
+        StorageDead(_98);
+        StorageLive(_100);
+        StorageLive(_101);
+        StorageLive(_102);
+        _102 = copy _2;
+        _101 = move _102;
+        goto -> bb47;
+    }
+
+    bb47: {
+        _100 = &mut (*_101);
+        StorageDead(_102);
+        _96 = <{async fn body of Response::text()} as Future>::poll(move _97, move _100) -> [return: bb48, unwind: bb246];
+    }
+
+    bb48: {
+        StorageDead(_101);
+        StorageDead(_100);
+        StorageDead(_99);
+        StorageDead(_97);
+        PlaceMention(_96);
+        _103 = discriminant(_96);
+        switchInt(move _103) -> [0: bb50, 1: bb49, otherwise: bb14];
+    }
+
+    bb49: {
+        _95 = const ();
+        goto -> bb342;
+    }
+
+    bb50: {
+        StorageLive(_104);
+        _104 = move ((_96 as Ready).0: std::result::Result<std::string::String, reqwest::Error>);
+        _90 = move _104;
+        goto -> bb53;
+    }
+
+    bb51: {
+        StorageDead(_96);
+        StorageDead(_95);
+        StorageLive(_106);
+        StorageLive(_107);
+        _107 = ();
+        _0 = std::task::Poll::<Result<u128, anyhow::Error>>::Pending;
+        StorageDead(_87);
+        StorageDead(_88);
+        StorageDead(_89);
+        StorageDead(_90);
+        StorageDead(_91);
+        StorageDead(_106);
+        StorageDead(_107);
+        discriminant(_1) = 4;
+        return;
+    }
+
+    bb52: {
+        StorageDead(_107);
+        _2 = move _106;
+        StorageDead(_106);
+        _35 = const ();
+        goto -> bb45;
+    }
+
+    bb53: {
+        StorageDead(_104);
+        goto -> bb346;
+    }
+
+    bb54: {
+        StorageDead(_96);
+        StorageDead(_95);
+        drop(((_1 as variant#4).6: {async fn body of reqwest::Response::text()})) -> [return: bb55, unwind: bb250];
+    }
+
+    bb55: {
+        nop;
+        _89 = <Result<String, reqwest::Error> as anyhow::Context<String, reqwest::Error>>::context::<&str>(move _90, const "Failed to read response body.") -> [return: bb56, unwind: bb244];
+    }
+
+    bb56: {
+        StorageDead(_90);
+        _88 = <Result<String, anyhow::Error> as Try>::branch(move _89) -> [return: bb57, unwind: bb243];
+    }
+
+    bb57: {
+        StorageDead(_89);
+        PlaceMention(_88);
+        _108 = discriminant(_88);
+        switchInt(move _108) -> [0: bb58, 1: bb59, otherwise: bb14];
+    }
+
+    bb58: {
+        StorageLive(_112);
+        _112 = move ((_88 as Continue).0: std::string::String);
+        ((_1 as variant#5).8: bool) = const true;
+        _87 = move _112;
+        goto -> bb61;
+    }
+
+    bb59: {
+        StorageLive(_109);
+        _109 = move ((_88 as Break).0: std::result::Result<std::convert::Infallible, anyhow::Error>);
+        StorageLive(_111);
+        _111 = move _109;
+        _300 = <Result<u128, anyhow::Error> as FromResidual<Result<Infallible, anyhow::Error>>>::from_residual(move _111) -> [return: bb60, unwind: bb239];
+    }
+
+    bb60: {
+        StorageDead(_111);
+        goto -> bb140;
+    }
+
+    bb61: {
+        StorageDead(_112);
+        goto -> bb350;
+    }
+
+    bb62: {
+        goto -> bb63;
+    }
+
+    bb63: {
+        StorageDead(_91);
+        StorageDead(_88);
+        StorageLive(_113);
+        StorageLive(_114);
+        StorageLive(_115);
+        StorageLive(_116);
+        StorageLive(_117);
+        StorageLive(_118);
+        _118 = &((_1 as variant#5).0: std::string::String);
+        _117 = &_118;
+        _116 = (move _117,);
+        StorageDead(_117);
+        StorageLive(_119);
+        StorageLive(_120);
+        StorageLive(_121);
+        _257 = no_retag copy (_116.0: &&std::string::String);
+        _121 = &(*_257);
+        _120 = core::fmt::rt::Argument::<'_>::new_display::<&String>(move _121) -> [return: bb64, unwind: bb236];
+    }
+
+    bb64: {
+        StorageDead(_121);
+        _119 = [move _120];
+        StorageDead(_120);
+        StorageLive(_122);
+        StorageLive(_123);
+        _123 = const b"\x16\xe5\x87\xbd\xe6\x95\xb0crawl, \xe5\x90\x8d\xe7\xa7\xb0\xef\xbc\x9a\xc0)\xef\xbc\x9a \xe7\xac\xac\xe4\xba\x8c\xe6\xac\xa1.await(response.text)\xe4\xb9\x8b\xe5\x90\x8e\n\x00";
+        _122 = &(*_123);
+        StorageLive(_124);
+        StorageLive(_125);
+        _125 = &_119;
+        _124 = &(*_125);
+        _115 = Arguments::<'_>::new::<67, 1>(move _122, move _124) -> [return: bb65, unwind: bb235];
+    }
+
+    bb65: {
+        StorageDead(_125);
+        StorageDead(_124);
+        StorageDead(_123);
+        StorageDead(_122);
+        _114 = std::io::_print(move _115) -> [return: bb66, unwind: bb237];
+    }
+
+    bb66: {
+        StorageDead(_115);
+        StorageDead(_119);
+        StorageDead(_118);
+        StorageDead(_116);
+        StorageDead(_114);
+        _113 = const ();
+        StorageDead(_113);
+        StorageLive(_126);
+        StorageLive(_127);
+        StorageLive(_128);
+        StorageLive(_129);
+        StorageLive(_130);
+        _130 = &((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>);
+        StorageLive(_131);
+        StorageLive(_132);
+        StorageLive(_133);
+        _133 = &((_1 as variant#5).0: std::string::String);
+        _132 = <String as Clone>::clone(move _133) -> [return: bb67, unwind: bb231];
+    }
+
+    bb67: {
+        StorageDead(_133);
+        StorageLive(_134);
+        ((_1 as variant#5).8: bool) = const false;
+        _134 = move _87;
+        _131 = (move _132, move _134);
+        goto -> bb68;
+    }
+
+    bb68: {
+        StorageDead(_134);
+        goto -> bb69;
+    }
+
+    bb69: {
+        StorageDead(_132);
+        _129 = tokio::sync::mpsc::Sender::<(String, String)>::send(move _130, move _131) -> [return: bb70, unwind: bb230];
+    }
+
+    bb70: {
+        StorageDead(_131);
+        StorageDead(_130);
+        _128 = <{async fn body of tokio::sync::mpsc::Sender<(String, String)>::send()} as IntoFuture>::into_future(move _129) -> [return: bb71, unwind: bb229];
+    }
+
+    bb71: {
+        StorageDead(_129);
+        PlaceMention(_128);
+        nop;
+        ((_1 as variant#5).6: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()}) = move _128;
+        goto -> bb72;
+    }
+
+    bb72: {
+        StorageLive(_136);
+        StorageLive(_137);
+        StorageLive(_138);
+        StorageLive(_139);
+        StorageLive(_140);
+        _140 = &mut ((_1 as variant#5).6: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()});
+        _139 = &mut (*_140);
+        _138 = Pin::<&mut {async fn body of tokio::sync::mpsc::Sender<(String, String)>::send()}>::new_unchecked(move _139) -> [return: bb73, unwind: bb224];
+    }
+
+    bb73: {
+        StorageDead(_139);
+        StorageLive(_141);
+        StorageLive(_142);
+        StorageLive(_143);
+        _143 = copy _2;
+        _142 = move _143;
+        goto -> bb74;
+    }
+
+    bb74: {
+        _141 = &mut (*_142);
+        StorageDead(_143);
+        _137 = <{async fn body of tokio::sync::mpsc::Sender<(String, String)>::send()} as Future>::poll(move _138, move _141) -> [return: bb75, unwind: bb223];
+    }
+
+    bb75: {
+        StorageDead(_142);
+        StorageDead(_141);
+        StorageDead(_140);
+        StorageDead(_138);
+        PlaceMention(_137);
+        _144 = discriminant(_137);
+        switchInt(move _144) -> [0: bb77, 1: bb76, otherwise: bb14];
+    }
+
+    bb76: {
+        _136 = const ();
+        goto -> bb354;
+    }
+
+    bb77: {
+        StorageLive(_145);
+        _145 = move ((_137 as Ready).0: std::result::Result<(), tokio::sync::mpsc::error::SendError<(std::string::String, std::string::String)>>);
+        _127 = move _145;
+        goto -> bb80;
+    }
+
+    bb78: {
+        StorageDead(_137);
+        StorageDead(_136);
+        StorageLive(_147);
+        StorageLive(_148);
+        _148 = ();
+        _0 = std::task::Poll::<Result<u128, anyhow::Error>>::Pending;
+        StorageDead(_87);
+        StorageDead(_126);
+        StorageDead(_127);
+        StorageDead(_128);
+        StorageDead(_147);
+        StorageDead(_148);
+        discriminant(_1) = 5;
+        return;
+    }
+
+    bb79: {
+        StorageDead(_148);
+        _2 = move _147;
+        StorageDead(_147);
+        _35 = const ();
+        goto -> bb72;
+    }
+
+    bb80: {
+        StorageDead(_145);
+        goto -> bb358;
+    }
+
+    bb81: {
+        StorageDead(_137);
+        StorageDead(_136);
+        drop(((_1 as variant#5).6: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()})) -> [return: bb82, unwind: bb227];
+    }
+
+    bb82: {
+        nop;
+        PlaceMention(_127);
+        _149 = discriminant(_127);
+        switchInt(move _149) -> [1: bb84, otherwise: bb83];
+    }
+
+    bb83: {
+        drop(_127) -> [return: bb91, unwind: bb228];
+    }
+
+    bb84: {
+        StorageLive(_151);
+        StorageLive(_152);
+        StorageLive(_153);
+        StorageLive(_154);
+        StorageLive(_155);
+        StorageLive(_156);
+        _156 = &((_1 as variant#5).0: std::string::String);
+        _155 = &_156;
+        _154 = (move _155,);
+        StorageDead(_155);
+        StorageLive(_157);
+        StorageLive(_158);
+        StorageLive(_159);
+        _258 = no_retag copy (_154.0: &&std::string::String);
+        _159 = &(*_258);
+        _158 = core::fmt::rt::Argument::<'_>::new_display::<&String>(move _159) -> [return: bb85, unwind: bb219];
+    }
+
+    bb85: {
+        StorageDead(_159);
+        _157 = [move _158];
+        StorageDead(_158);
+        StorageLive(_160);
+        StorageLive(_161);
+        _161 = const b"\x19receiver Droped for name=\xc0\x01\n\x00";
+        _160 = &(*_161);
+        StorageLive(_162);
+        StorageLive(_163);
+        _163 = &_157;
+        _162 = &(*_163);
+        _153 = Arguments::<'_>::new::<30, 1>(move _160, move _162) -> [return: bb86, unwind: bb218];
+    }
+
+    bb86: {
+        StorageDead(_163);
+        StorageDead(_162);
+        StorageDead(_161);
+        StorageDead(_160);
+        _152 = std::io::_print(move _153) -> [return: bb87, unwind: bb220];
+    }
+
+    bb87: {
+        StorageDead(_153);
+        StorageDead(_157);
+        StorageDead(_156);
+        StorageDead(_154);
+        StorageDead(_152);
+        _151 = const ();
+        StorageDead(_151);
+        StorageLive(_164);
+        StorageLive(_165);
+        _165 = anyhow::error::<impl anyhow::Error>::msg::<&str>(const "Failed to send response to channel.") -> [return: bb88, unwind: bb216];
+    }
+
+    bb88: {
+        _164 = <anyhow::Error as Into<anyhow::Error>>::into(move _165) -> [return: bb89, unwind: bb215];
+    }
+
+    bb89: {
+        StorageDead(_165);
+        _300 = Result::<u128, anyhow::Error>::Err(move _164);
+        goto -> bb90;
+    }
+
+    bb90: {
+        StorageDead(_164);
+        drop(_127) -> [return: bb138, unwind: bb228];
+    }
+
+    bb91: {
+        goto -> bb92;
+    }
+
+    bb92: {
+        StorageDead(_128);
+        StorageDead(_127);
+        _126 = const ();
+        StorageDead(_126);
+        StorageLive(_166);
+        StorageLive(_167);
+        StorageLive(_168);
+        StorageLive(_169);
+        StorageLive(_170);
+        StorageLive(_171);
+        _171 = &((_1 as variant#5).0: std::string::String);
+        _170 = &_171;
+        _169 = (move _170,);
+        StorageDead(_170);
+        StorageLive(_172);
+        StorageLive(_173);
+        StorageLive(_174);
+        _259 = no_retag copy (_169.0: &&std::string::String);
+        _174 = &(*_259);
+        _173 = core::fmt::rt::Argument::<'_>::new_display::<&String>(move _174) -> [return: bb93, unwind: bb213];
+    }
+
+    bb93: {
+        StorageDead(_174);
+        _172 = [move _173];
+        StorageDead(_173);
+        StorageLive(_175);
+        StorageLive(_176);
+        _176 = const b"\x16\xe5\x87\xbd\xe6\x95\xb0crawl, \xe5\x90\x8d\xe7\xa7\xb0\xef\xbc\x9a\xc0\'\xef\xbc\x9a \xe7\xac\xac\xe4\xb8\x89\xe6\xac\xa1.await(sender.send)\xe4\xb9\x8b\xe5\x90\x8e\n\x00";
+        _175 = &(*_176);
+        StorageLive(_177);
+        StorageLive(_178);
+        _178 = &_172;
+        _177 = &(*_178);
+        _168 = Arguments::<'_>::new::<65, 1>(move _175, move _177) -> [return: bb94, unwind: bb212];
+    }
+
+    bb94: {
+        StorageDead(_178);
+        StorageDead(_177);
+        StorageDead(_176);
+        StorageDead(_175);
+        _167 = std::io::_print(move _168) -> [return: bb95, unwind: bb214];
+    }
+
+    bb95: {
+        StorageDead(_168);
+        StorageDead(_172);
+        StorageDead(_171);
+        StorageDead(_169);
+        StorageDead(_167);
+        _166 = const ();
+        StorageDead(_166);
+        StorageLive(_179);
+        _179 = sysinfo::System::new_all() -> [return: bb96, unwind: bb211];
+    }
+
+    bb96: {
+        StorageLive(_180);
+        StorageLive(_181);
+        _181 = &mut _179;
+        _180 = sysinfo::System::refresh_all(move _181) -> [return: bb97, unwind: bb209];
+    }
+
+    bb97: {
+        StorageDead(_181);
+        StorageDead(_180);
+        StorageLive(_182);
+        StorageLive(_183);
+        _183 = std::process::id() -> [return: bb98, unwind: bb207];
+    }
+
+    bb98: {
+        _182 = Pid::from_u32(move _183) -> [return: bb99, unwind: bb207];
+    }
+
+    bb99: {
+        StorageDead(_183);
+        StorageLive(_184);
+        _184 = const true;
+        StorageLive(_185);
+        _185 = const 0_u64;
+        StorageLive(_186);
+        _186 = const 0_u64;
+        StorageLive(_187);
+        goto -> bb100;
+    }
+
+    bb100: {
+        StorageLive(_188);
+        _188 = copy _184;
+        switchInt(move _188) -> [0: bb119, otherwise: bb101];
+    }
+
+    bb101: {
+        StorageLive(_189);
+        StorageLive(_190);
+        _190 = &_179;
+        StorageLive(_191);
+        _191 = copy _182;
+        _189 = sysinfo::System::process(move _190, move _191) -> [return: bb102, unwind: bb204];
+    }
+
+    bb102: {
+        StorageDead(_191);
+        StorageDead(_190);
+        PlaceMention(_189);
+        _192 = discriminant(_189);
+        switchInt(move _192) -> [1: bb103, otherwise: bb118];
+    }
+
+    bb103: {
+        StorageLive(_193);
+        _193 = copy ((_189 as Some).0: &sysinfo::Process);
+        StorageLive(_194);
+        StorageLive(_195);
+        StorageLive(_196);
+        _196 = &(*_193);
+        _195 = Process::memory(move _196) -> [return: bb104, unwind: bb200];
+    }
+
+    bb104: {
+        StorageDead(_196);
+        _197 = Eq(const 1024_u64, const 0_u64);
+        assert(!move _197, "attempt to divide `{}` by zero", copy _195) -> [success: bb105, unwind: bb201];
+    }
+
+    bb105: {
+        _194 = Div(move _195, const 1024_u64);
+        StorageDead(_195);
+        _198 = Eq(const 1024_u64, const 0_u64);
+        assert(!move _198, "attempt to divide `{}` by zero", copy _194) -> [success: bb106, unwind: bb202];
+    }
+
+    bb106: {
+        _185 = Div(move _194, const 1024_u64);
+        StorageDead(_194);
+        StorageLive(_199);
+        StorageLive(_200);
+        StorageLive(_201);
+        _201 = &(*_193);
+        _200 = Process::virtual_memory(move _201) -> [return: bb107, unwind: bb197];
+    }
+
+    bb107: {
+        StorageDead(_201);
+        _202 = Eq(const 1024_u64, const 0_u64);
+        assert(!move _202, "attempt to divide `{}` by zero", copy _200) -> [success: bb108, unwind: bb198];
+    }
+
+    bb108: {
+        _199 = Div(move _200, const 1024_u64);
+        StorageDead(_200);
+        _203 = Eq(const 1024_u64, const 0_u64);
+        assert(!move _203, "attempt to divide `{}` by zero", copy _199) -> [success: bb109, unwind: bb199];
+    }
+
+    bb109: {
+        _186 = Div(move _199, const 1024_u64);
+        StorageDead(_199);
+        _184 = const false;
+        StorageLive(_204);
+        StorageLive(_205);
+        _205 = copy _184;
+        _204 = Eq(move _205, const true);
+        switchInt(move _204) -> [0: bb116, otherwise: bb110];
+    }
+
+    bb110: {
+        StorageDead(_205);
+        StorageLive(_206);
+        _206 = Duration::from_secs(const 1_u64) -> [return: bb111, unwind: bb196];
+    }
+
+    bb111: {
+        StorageLive(_207);
+        StorageLive(_208);
+        StorageLive(_209);
+        StorageLive(_210);
+        StorageLive(_211);
+        StorageLive(_212);
+        _212 = &((_1 as variant#5).0: std::string::String);
+        _211 = &_212;
+        _210 = (move _211,);
+        StorageDead(_211);
+        StorageLive(_213);
+        StorageLive(_214);
+        StorageLive(_215);
+        _260 = no_retag copy (_210.0: &&std::string::String);
+        _215 = &(*_260);
+        _214 = core::fmt::rt::Argument::<'_>::new_display::<&String>(move _215) -> [return: bb112, unwind: bb194];
+    }
+
+    bb112: {
+        StorageDead(_215);
+        _213 = [move _214];
+        StorageDead(_214);
+        StorageLive(_216);
+        StorageLive(_217);
+        _217 = const b"\xc0* \xe6\x9c\xaa\xe5\xbe\x97\xe5\x88\xb0\xe5\x86\x85\xe5\xad\x98\xe4\xbd\xbf\xe7\x94\xa8\xef\xbc\x8c\xe7\x9d\xa1\xe7\x9c\xa01\xe7\xa7\x92\xef\xbc\x81\xef\xbc\x81\n\x00";
+        _216 = &(*_217);
+        StorageLive(_218);
+        StorageLive(_219);
+        _219 = &_213;
+        _218 = &(*_219);
+        _209 = Arguments::<'_>::new::<45, 1>(move _216, move _218) -> [return: bb113, unwind: bb193];
+    }
+
+    bb113: {
+        StorageDead(_219);
+        StorageDead(_218);
+        StorageDead(_217);
+        StorageDead(_216);
+        _208 = std::io::_print(move _209) -> [return: bb114, unwind: bb195];
+    }
+
+    bb114: {
+        StorageDead(_209);
+        StorageDead(_213);
+        StorageDead(_212);
+        StorageDead(_210);
+        StorageDead(_208);
+        _207 = const ();
+        StorageDead(_207);
+        StorageLive(_220);
+        StorageLive(_221);
+        _221 = copy _206;
+        _220 = std::thread::sleep(move _221) -> [return: bb115, unwind: bb192];
+    }
+
+    bb115: {
+        StorageDead(_221);
+        StorageDead(_220);
+        _35 = const ();
+        StorageDead(_206);
+        goto -> bb117;
+    }
+
+    bb116: {
+        StorageDead(_205);
+        _35 = const ();
+        goto -> bb117;
+    }
+
+    bb117: {
+        StorageDead(_204);
+        StorageDead(_193);
+        StorageDead(_189);
+        goto -> bb120;
+    }
+
+    bb118: {
+        StorageDead(_189);
+        _35 = const ();
+        goto -> bb120;
+    }
+
+    bb119: {
+        StorageLive(_223);
+        _187 = const ();
+        StorageDead(_223);
+        StorageDead(_188);
+        StorageDead(_187);
+        StorageLive(_225);
+        StorageLive(_226);
+        StorageLive(_227);
+        StorageLive(_228);
+        _228 = &((_1 as variant#5).4: std::time::Instant);
+        _227 = std::time::Instant::elapsed(move _228) -> [return: bb121, unwind: bb189];
+    }
+
+    bb120: {
+        StorageDead(_188);
+        goto -> bb100;
+    }
+
+    bb121: {
+        _226 = &_227;
+        StorageDead(_228);
+        _225 = Duration::as_millis(move _226) -> [return: bb122, unwind: bb190];
+    }
+
+    bb122: {
+        StorageDead(_226);
+        StorageDead(_227);
+        StorageLive(_229);
+        StorageLive(_230);
+        StorageLive(_231);
+        StorageLive(_232);
+        StorageLive(_233);
+        _233 = &((_1 as variant#5).0: std::string::String);
+        StorageLive(_234);
+        _234 = &_225;
+        StorageLive(_235);
+        _235 = &_185;
+        StorageLive(_236);
+        _236 = &_186;
+        _232 = (move _233, move _234, move _235, move _236);
+        StorageDead(_236);
+        StorageDead(_235);
+        StorageDead(_234);
+        StorageDead(_233);
+        StorageLive(_237);
+        StorageLive(_238);
+        StorageLive(_239);
+        _261 = no_retag copy (_232.0: &std::string::String);
+        _239 = &(*_261);
+        _238 = core::fmt::rt::Argument::<'_>::new_display::<String>(move _239) -> [return: bb123, unwind: bb186];
+    }
+
+    bb123: {
+        StorageDead(_239);
+        StorageLive(_240);
+        StorageLive(_241);
+        _262 = no_retag copy (_232.1: &u128);
+        _241 = &(*_262);
+        _240 = core::fmt::rt::Argument::<'_>::new_display::<u128>(move _241) -> [return: bb124, unwind: bb184];
+    }
+
+    bb124: {
+        StorageDead(_241);
+        StorageLive(_242);
+        StorageLive(_243);
+        _263 = no_retag copy (_232.2: &u64);
+        _243 = &(*_263);
+        _242 = core::fmt::rt::Argument::<'_>::new_display::<u64>(move _243) -> [return: bb125, unwind: bb182];
+    }
+
+    bb125: {
+        StorageDead(_243);
+        StorageLive(_244);
+        StorageLive(_245);
+        _264 = no_retag copy (_232.3: &u64);
+        _245 = &(*_264);
+        _244 = core::fmt::rt::Argument::<'_>::new_display::<u64>(move _245) -> [return: bb126, unwind: bb181];
+    }
+
+    bb126: {
+        StorageDead(_245);
+        _237 = [move _238, move _240, move _242, move _244];
+        StorageDead(_244);
+        StorageDead(_242);
+        StorageDead(_240);
+        StorageDead(_238);
+        StorageLive(_246);
+        StorageLive(_247);
+        _247 = const b"\x07name = \xc0\x10 delay_millis = \xc0\x0c  mem_use = \xc0\x0c vmem_use = \xc0\x01\n\x00";
+        _246 = &(*_247);
+        StorageLive(_248);
+        StorageLive(_249);
+        _249 = &_237;
+        _248 = &(*_249);
+        _231 = Arguments::<'_>::new::<58, 4>(move _246, move _248) -> [return: bb127, unwind: bb180];
+    }
+
+    bb127: {
+        StorageDead(_249);
+        StorageDead(_248);
+        StorageDead(_247);
+        StorageDead(_246);
+        _230 = std::io::_print(move _231) -> [return: bb128, unwind: bb188];
+    }
+
+    bb128: {
+        StorageDead(_231);
+        StorageDead(_237);
+        StorageDead(_232);
+        StorageDead(_230);
+        _229 = const ();
+        StorageDead(_229);
+        StorageLive(_250);
+        StorageLive(_251);
+        StorageLive(_252);
+        StorageLive(_253);
+        _253 = &((_1 as variant#5).4: std::time::Instant);
+        _252 = std::time::Instant::elapsed(move _253) -> [return: bb129, unwind: bb178];
+    }
+
+    bb129: {
+        _251 = &_252;
+        StorageDead(_253);
+        _250 = Duration::as_millis(move _251) -> [return: bb130, unwind: bb179];
+    }
+
+    bb130: {
+        StorageDead(_251);
+        _300 = Result::<u128, anyhow::Error>::Ok(move _250);
+        StorageDead(_252);
+        StorageDead(_250);
+        StorageDead(_225);
+        StorageDead(_186);
+        StorageDead(_185);
+        StorageDead(_184);
+        StorageDead(_182);
+        drop(_179) -> [return: bb131, unwind: bb211];
+    }
+
+    bb131: {
+        StorageDead(_179);
+        goto -> bb132;
+    }
+
+    bb132: {
+        ((_1 as variant#5).8: bool) = const false;
+        StorageDead(_87);
+        goto -> bb133;
+    }
+
+    bb133: {
+        ((_1 as variant#5).7: bool) = const false;
+        nop;
+        nop;
+        drop(((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb134, unwind: bb306];
+    }
+
+    bb134: {
+        nop;
+        drop(((_1 as variant#5).2: reqwest::Client)) -> [return: bb135, unwind: bb307];
+    }
+
+    bb135: {
+        nop;
+        drop(((_1 as variant#5).1: reqwest::Url)) -> [return: bb136, unwind: bb308];
+    }
+
+    bb136: {
+        nop;
+        drop(((_1 as variant#5).0: std::string::String)) -> [return: bb137, unwind: bb309];
+    }
+
+    bb137: {
+        nop;
+        goto -> bb363;
+    }
+
+    bb138: {
+        goto -> bb139;
+    }
+
+    bb139: {
+        StorageDead(_128);
+        StorageDead(_127);
+        StorageDead(_126);
+        goto -> bb143;
+    }
+
+    bb140: {
+        StorageDead(_109);
+        goto -> bb367;
+    }
+
+    bb141: {
+        goto -> bb142;
+    }
+
+    bb142: {
+        StorageDead(_91);
+        StorageDead(_88);
+        goto -> bb143;
+    }
+
+    bb143: {
+        ((_1 as variant#5).8: bool) = const false;
+        StorageDead(_87);
+        goto -> bb144;
+    }
+
+    bb144: {
+        goto -> bb369;
+    }
+
+    bb145: {
+        StorageDead(_63);
+        goto -> bb373;
+    }
+
+    bb146: {
+        goto -> bb147;
+    }
+
+    bb147: {
+        StorageDead(_33);
+        StorageDead(_25);
+        StorageDead(_22);
+        goto -> bb148;
+    }
+
+    bb148: {
+        ((_1 as variant#5).7: bool) = const false;
+        nop;
+        nop;
+        drop(((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb149, unwind: bb306];
+    }
+
+    bb149: {
+        nop;
+        drop(((_1 as variant#5).2: reqwest::Client)) -> [return: bb150, unwind: bb307];
+    }
+
+    bb150: {
+        nop;
+        drop(((_1 as variant#5).1: reqwest::Url)) -> [return: bb151, unwind: bb308];
+    }
+
+    bb151: {
+        nop;
+        drop(((_1 as variant#5).0: std::string::String)) -> [return: bb152, unwind: bb309];
+    }
+
+    bb152: {
+        nop;
+        goto -> bb378;
+    }
+
+    bb153: {
+        _0 = std::task::Poll::<Result<u128, anyhow::Error>>::Ready(move _300);
+        discriminant(_1) = 1;
+        return;
+    }
+
+    bb154: {
+        StorageDead(_148);
+        StorageDead(_147);
+        goto -> bb155;
+    }
+
+    bb155: {
+        drop(((_1 as variant#5).6: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()})) -> [return: bb156, unwind: bb311];
+    }
+
+    bb156: {
+        nop;
+        goto -> bb157;
+    }
+
+    bb157: {
+        goto -> bb158;
+    }
+
+    bb158: {
+        StorageDead(_128);
+        StorageDead(_127);
+        StorageDead(_126);
+        goto -> bb159;
+    }
+
+    bb159: {
+        goto -> bb165;
+    }
+
+    bb160: {
+        StorageDead(_107);
+        StorageDead(_106);
+        goto -> bb161;
+    }
+
+    bb161: {
+        drop(((_1 as variant#4).6: {async fn body of reqwest::Response::text()})) -> [return: bb162, unwind: bb314];
+    }
+
+    bb162: {
+        nop;
+        StorageDead(_90);
+        StorageDead(_89);
+        goto -> bb163;
+    }
+
+    bb163: {
+        goto -> bb164;
+    }
+
+    bb164: {
+        StorageDead(_91);
+        StorageDead(_88);
+        goto -> bb165;
+    }
+
+    bb165: {
+        ((_1 as variant#5).8: bool) = const false;
+        StorageDead(_87);
+        goto -> bb166;
+    }
+
+    bb166: {
+        goto -> bb172;
+    }
+
+    bb167: {
+        StorageDead(_48);
+        StorageDead(_47);
+        goto -> bb168;
+    }
+
+    bb168: {
+        drop(((_1 as variant#3).5: reqwest::async_impl::client::Pending)) -> [return: bb169, unwind: bb319];
+    }
+
+    bb169: {
+        nop;
+        _267 = const false;
+        StorageDead(_24);
+        StorageDead(_23);
+        goto -> bb170;
+    }
+
+    bb170: {
+        goto -> bb171;
+    }
+
+    bb171: {
+        StorageDead(_33);
+        StorageDead(_25);
+        StorageDead(_22);
+        goto -> bb172;
+    }
+
+    bb172: {
+        ((_1 as variant#5).7: bool) = const false;
+        nop;
+        nop;
+        drop(((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb173, unwind: bb323];
+    }
+
+    bb173: {
+        nop;
+        drop(((_1 as variant#5).2: reqwest::Client)) -> [return: bb174, unwind: bb324];
+    }
+
+    bb174: {
+        nop;
+        drop(((_1 as variant#5).1: reqwest::Url)) -> [return: bb175, unwind: bb325];
+    }
+
+    bb175: {
+        nop;
+        drop(((_1 as variant#5).0: std::string::String)) -> [return: bb176, unwind: bb326];
+    }
+
+    bb176: {
+        nop;
+        goto -> bb383;
+    }
+
+    bb177: {
+        coroutine_drop;
+    }
+
+    bb178 (cleanup): {
+        StorageDead(_253);
+        goto -> bb179;
+    }
+
+    bb179 (cleanup): {
+        StorageDead(_251);
+        StorageDead(_252);
+        StorageDead(_250);
+        goto -> bb191;
+    }
+
+    bb180 (cleanup): {
+        StorageDead(_249);
+        StorageDead(_248);
+        StorageDead(_247);
+        StorageDead(_246);
+        goto -> bb188;
+    }
+
+    bb181 (cleanup): {
+        StorageDead(_245);
+        StorageDead(_244);
+        goto -> bb183;
+    }
+
+    bb182 (cleanup): {
+        StorageDead(_243);
+        goto -> bb183;
+    }
+
+    bb183 (cleanup): {
+        StorageDead(_242);
+        goto -> bb185;
+    }
+
+    bb184 (cleanup): {
+        StorageDead(_241);
+        goto -> bb185;
+    }
+
+    bb185 (cleanup): {
+        StorageDead(_240);
+        goto -> bb187;
+    }
+
+    bb186 (cleanup): {
+        StorageDead(_239);
+        goto -> bb187;
+    }
+
+    bb187 (cleanup): {
+        StorageDead(_238);
+        goto -> bb188;
+    }
+
+    bb188 (cleanup): {
+        StorageDead(_231);
+        StorageDead(_237);
+        StorageDead(_232);
+        StorageDead(_230);
+        StorageDead(_229);
+        goto -> bb191;
+    }
+
+    bb189 (cleanup): {
+        StorageDead(_228);
+        goto -> bb190;
+    }
+
+    bb190 (cleanup): {
+        StorageDead(_226);
+        StorageDead(_227);
+        goto -> bb191;
+    }
+
+    bb191 (cleanup): {
+        StorageDead(_225);
+        goto -> bb206;
+    }
+
+    bb192 (cleanup): {
+        StorageDead(_221);
+        StorageDead(_220);
+        goto -> bb196;
+    }
+
+    bb193 (cleanup): {
+        StorageDead(_219);
+        StorageDead(_218);
+        StorageDead(_217);
+        StorageDead(_216);
+        goto -> bb195;
+    }
+
+    bb194 (cleanup): {
+        StorageDead(_215);
+        StorageDead(_214);
+        goto -> bb195;
+    }
+
+    bb195 (cleanup): {
+        StorageDead(_209);
+        StorageDead(_213);
+        StorageDead(_212);
+        StorageDead(_210);
+        StorageDead(_208);
+        StorageDead(_207);
+        goto -> bb196;
+    }
+
+    bb196 (cleanup): {
+        StorageDead(_206);
+        StorageDead(_204);
+        goto -> bb203;
+    }
+
+    bb197 (cleanup): {
+        StorageDead(_201);
+        goto -> bb198;
+    }
+
+    bb198 (cleanup): {
+        StorageDead(_200);
+        goto -> bb199;
+    }
+
+    bb199 (cleanup): {
+        StorageDead(_199);
+        goto -> bb203;
+    }
+
+    bb200 (cleanup): {
+        StorageDead(_196);
+        goto -> bb201;
+    }
+
+    bb201 (cleanup): {
+        StorageDead(_195);
+        goto -> bb202;
+    }
+
+    bb202 (cleanup): {
+        StorageDead(_194);
+        goto -> bb203;
+    }
+
+    bb203 (cleanup): {
+        StorageDead(_193);
+        goto -> bb205;
+    }
+
+    bb204 (cleanup): {
+        StorageDead(_191);
+        StorageDead(_190);
+        goto -> bb205;
+    }
+
+    bb205 (cleanup): {
+        StorageDead(_189);
+        StorageDead(_188);
+        StorageDead(_187);
+        goto -> bb206;
+    }
+
+    bb206 (cleanup): {
+        StorageDead(_186);
+        StorageDead(_185);
+        StorageDead(_184);
+        goto -> bb208;
+    }
+
+    bb207 (cleanup): {
+        StorageDead(_183);
+        goto -> bb208;
+    }
+
+    bb208 (cleanup): {
+        StorageDead(_182);
+        goto -> bb210;
+    }
+
+    bb209 (cleanup): {
+        StorageDead(_181);
+        StorageDead(_180);
+        goto -> bb210;
+    }
+
+    bb210 (cleanup): {
+        drop(_179) -> [return: bb211, unwind terminate(cleanup)];
+    }
+
+    bb211 (cleanup): {
+        StorageDead(_179);
+        goto -> bb238;
+    }
+
+    bb212 (cleanup): {
+        StorageDead(_178);
+        StorageDead(_177);
+        StorageDead(_176);
+        StorageDead(_175);
+        goto -> bb214;
+    }
+
+    bb213 (cleanup): {
+        StorageDead(_174);
+        StorageDead(_173);
+        goto -> bb214;
+    }
+
+    bb214 (cleanup): {
+        StorageDead(_168);
+        StorageDead(_172);
+        StorageDead(_171);
+        StorageDead(_169);
+        StorageDead(_167);
+        StorageDead(_166);
+        goto -> bb238;
+    }
+
+    bb215 (cleanup): {
+        goto -> bb216;
+    }
+
+    bb216 (cleanup): {
+        StorageDead(_165);
+        goto -> bb217;
+    }
+
+    bb217 (cleanup): {
+        StorageDead(_164);
+        goto -> bb221;
+    }
+
+    bb218 (cleanup): {
+        StorageDead(_163);
+        StorageDead(_162);
+        StorageDead(_161);
+        StorageDead(_160);
+        goto -> bb220;
+    }
+
+    bb219 (cleanup): {
+        StorageDead(_159);
+        StorageDead(_158);
+        goto -> bb220;
+    }
+
+    bb220 (cleanup): {
+        StorageDead(_153);
+        StorageDead(_157);
+        StorageDead(_156);
+        StorageDead(_154);
+        StorageDead(_152);
+        StorageDead(_151);
+        goto -> bb221;
+    }
+
+    bb221 (cleanup): {
+        drop(_127) -> [return: bb228, unwind terminate(cleanup)];
+    }
+
+    bb222 (cleanup): {
+        StorageDead(_143);
+        goto -> bb223;
+    }
+
+    bb223 (cleanup): {
+        StorageDead(_142);
+        StorageDead(_141);
+        goto -> bb225;
+    }
+
+    bb224 (cleanup): {
+        StorageDead(_139);
+        goto -> bb225;
+    }
+
+    bb225 (cleanup): {
+        StorageDead(_140);
+        StorageDead(_138);
+        goto -> bb226;
+    }
+
+    bb226 (cleanup): {
+        StorageDead(_137);
+        StorageDead(_136);
+        drop(((_1 as variant#5).6: {async fn body of tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>::send()})) -> [return: bb227, unwind terminate(cleanup)];
+    }
+
+    bb227 (cleanup): {
+        nop;
+        goto -> bb228;
+    }
+
+    bb228 (cleanup): {
+        goto -> bb234;
+    }
+
+    bb229 (cleanup): {
+        goto -> bb233;
+    }
+
+    bb230 (cleanup): {
+        goto -> bb232;
+    }
+
+    bb231 (cleanup): {
+        StorageDead(_133);
+        StorageDead(_132);
+        goto -> bb232;
+    }
+
+    bb232 (cleanup): {
+        StorageDead(_131);
+        StorageDead(_130);
+        goto -> bb233;
+    }
+
+    bb233 (cleanup): {
+        StorageDead(_129);
+        goto -> bb234;
+    }
+
+    bb234 (cleanup): {
+        StorageDead(_128);
+        StorageDead(_127);
+        StorageDead(_126);
+        goto -> bb238;
+    }
+
+    bb235 (cleanup): {
+        StorageDead(_125);
+        StorageDead(_124);
+        StorageDead(_123);
+        StorageDead(_122);
+        goto -> bb237;
+    }
+
+    bb236 (cleanup): {
+        StorageDead(_121);
+        StorageDead(_120);
+        goto -> bb237;
+    }
+
+    bb237 (cleanup): {
+        StorageDead(_115);
+        StorageDead(_119);
+        StorageDead(_118);
+        StorageDead(_116);
+        StorageDead(_114);
+        StorageDead(_113);
+        goto -> bb238;
+    }
+
+    bb238 (cleanup): {
+        goto -> bb385;
+    }
+
+    bb239 (cleanup): {
+        goto -> bb240;
+    }
+
+    bb240 (cleanup): {
+        StorageDead(_111);
+        goto -> bb241;
+    }
+
+    bb241 (cleanup): {
+        StorageDead(_109);
+        goto -> bb242;
+    }
+
+    bb242 (cleanup): {
+        goto -> bb388;
+    }
+
+    bb243 (cleanup): {
+        goto -> bb252;
+    }
+
+    bb244 (cleanup): {
+        goto -> bb251;
+    }
+
+    bb245 (cleanup): {
+        StorageDead(_102);
+        goto -> bb246;
+    }
+
+    bb246 (cleanup): {
+        StorageDead(_101);
+        StorageDead(_100);
+        goto -> bb248;
+    }
+
+    bb247 (cleanup): {
+        StorageDead(_98);
+        goto -> bb248;
+    }
+
+    bb248 (cleanup): {
+        StorageDead(_99);
+        StorageDead(_97);
+        goto -> bb249;
+    }
+
+    bb249 (cleanup): {
+        StorageDead(_96);
+        StorageDead(_95);
+        drop(((_1 as variant#4).6: {async fn body of reqwest::Response::text()})) -> [return: bb250, unwind terminate(cleanup)];
+    }
+
+    bb250 (cleanup): {
+        nop;
+        goto -> bb251;
+    }
+
+    bb251 (cleanup): {
+        StorageDead(_90);
+        goto -> bb252;
+    }
+
+    bb252 (cleanup): {
+        StorageDead(_89);
+        goto -> bb253;
+    }
+
+    bb253 (cleanup): {
+        goto -> bb258;
+    }
+
+    bb254 (cleanup): {
+        goto -> bb257;
+    }
+
+    bb255 (cleanup): {
+        goto -> bb256;
+    }
+
+    bb256 (cleanup): {
+        StorageDead(_93);
+        goto -> bb257;
+    }
+
+    bb257 (cleanup): {
+        StorageDead(_92);
+        StorageDead(_90);
+        StorageDead(_89);
+        goto -> bb258;
+    }
+
+    bb258 (cleanup): {
+        StorageDead(_91);
+        StorageDead(_88);
+        goto -> bb259;
+    }
+
+    bb259 (cleanup): {
+        ((_1 as variant#5).8: bool) = const false;
+        StorageDead(_87);
+        goto -> bb267;
+    }
+
+    bb260 (cleanup): {
+        StorageDead(_86);
+        goto -> bb263;
+    }
+
+    bb261 (cleanup): {
+        StorageDead(_84);
+        goto -> bb262;
+    }
+
+    bb262 (cleanup): {
+        StorageDead(_82);
+        StorageDead(_83);
+        goto -> bb263;
+    }
+
+    bb263 (cleanup): {
+        StorageDead(_81);
+        StorageDead(_80);
+        goto -> bb267;
+    }
+
+    bb264 (cleanup): {
+        StorageDead(_79);
+        StorageDead(_78);
+        StorageDead(_77);
+        StorageDead(_76);
+        goto -> bb266;
+    }
+
+    bb265 (cleanup): {
+        StorageDead(_75);
+        StorageDead(_74);
+        goto -> bb266;
+    }
+
+    bb266 (cleanup): {
+        StorageDead(_69);
+        StorageDead(_73);
+        StorageDead(_72);
+        StorageDead(_70);
+        StorageDead(_68);
+        StorageDead(_67);
+        goto -> bb267;
+    }
+
+    bb267 (cleanup): {
+        goto -> bb390;
+    }
+
+    bb268 (cleanup): {
+        goto -> bb269;
+    }
+
+    bb269 (cleanup): {
+        StorageDead(_65);
+        goto -> bb270;
+    }
+
+    bb270 (cleanup): {
+        StorageDead(_63);
+        goto -> bb271;
+    }
+
+    bb271 (cleanup): {
+        goto -> bb393;
+    }
+
+    bb272 (cleanup): {
+        goto -> bb287;
+    }
+
+    bb273 (cleanup): {
+        goto -> bb279;
+    }
+
+    bb274 (cleanup): {
+        goto -> bb278;
+    }
+
+    bb275 (cleanup): {
+        StorageDead(_61);
+        StorageDead(_60);
+        StorageDead(_59);
+        StorageDead(_58);
+        goto -> bb277;
+    }
+
+    bb276 (cleanup): {
+        StorageDead(_57);
+        StorageDead(_56);
+        goto -> bb277;
+    }
+
+    bb277 (cleanup): {
+        StorageDead(_55);
+        StorageDead(_54);
+        StorageDead(_52);
+        StorageDead(_51);
+        goto -> bb278;
+    }
+
+    bb278 (cleanup): {
+        StorageDead(_50);
+        goto -> bb279;
+    }
+
+    bb279 (cleanup): {
+        StorageDead(_49);
+        goto -> bb395;
+    }
+
+    bb280 (cleanup): {
+        StorageDead(_43);
+        goto -> bb281;
+    }
+
+    bb281 (cleanup): {
+        StorageDead(_42);
+        StorageDead(_41);
+        goto -> bb283;
+    }
+
+    bb282 (cleanup): {
+        StorageDead(_39);
+        goto -> bb283;
+    }
+
+    bb283 (cleanup): {
+        StorageDead(_40);
+        StorageDead(_38);
+        goto -> bb284;
+    }
+
+    bb284 (cleanup): {
+        StorageDead(_37);
+        StorageDead(_36);
+        drop(((_1 as variant#3).5: reqwest::async_impl::client::Pending)) -> [return: bb285, unwind terminate(cleanup)];
+    }
+
+    bb285 (cleanup): {
+        nop;
+        goto -> bb286;
+    }
+
+    bb286 (cleanup): {
+        _267 = const false;
+        StorageDead(_24);
+        goto -> bb287;
+    }
+
+    bb287 (cleanup): {
+        StorageDead(_23);
+        goto -> bb288;
+    }
+
+    bb288 (cleanup): {
+        goto -> bb295;
+    }
+
+    bb289 (cleanup): {
+        goto -> bb294;
+    }
+
+    bb290 (cleanup): {
+        goto -> bb293;
+    }
+
+    bb291 (cleanup): {
+        StorageDead(_32);
+        goto -> bb292;
+    }
+
+    bb292 (cleanup): {
+        StorageDead(_28);
+        goto -> bb293;
+    }
+
+    bb293 (cleanup): {
+        StorageDead(_27);
+        goto -> bb294;
+    }
+
+    bb294 (cleanup): {
+        StorageDead(_26);
+        _267 = const false;
+        StorageDead(_24);
+        StorageDead(_23);
+        goto -> bb295;
+    }
+
+    bb295 (cleanup): {
+        StorageDead(_33);
+        goto -> bb299;
+    }
+
+    bb296 (cleanup): {
+        goto -> bb298;
+    }
+
+    bb297 (cleanup): {
+        StorageDead(_31);
+        goto -> bb298;
+    }
+
+    bb298 (cleanup): {
+        StorageDead(_30);
+        StorageDead(_29);
+        StorageDead(_28);
+        StorageDead(_27);
+        StorageDead(_26);
+        _267 = const false;
+        StorageDead(_24);
+        StorageDead(_23);
+        goto -> bb299;
+    }
+
+    bb299 (cleanup): {
+        StorageDead(_25);
+        StorageDead(_22);
+        goto -> bb300;
+    }
+
+    bb300 (cleanup): {
+        ((_1 as variant#5).7: bool) = const false;
+        nop;
+        goto -> bb301;
+    }
+
+    bb301 (cleanup): {
+        nop;
+        goto -> bb305;
+    }
+
+    bb302 (cleanup): {
+        StorageDead(_19);
+        StorageDead(_18);
+        StorageDead(_17);
+        StorageDead(_16);
+        goto -> bb304;
+    }
+
+    bb303 (cleanup): {
+        StorageDead(_15);
+        StorageDead(_14);
+        goto -> bb304;
+    }
+
+    bb304 (cleanup): {
+        StorageDead(_9);
+        StorageDead(_13);
+        StorageDead(_12);
+        StorageDead(_10);
+        StorageDead(_8);
+        StorageDead(_7);
+        goto -> bb305;
+    }
+
+    bb305 (cleanup): {
+        drop(((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb306, unwind terminate(cleanup)];
+    }
+
+    bb306 (cleanup): {
+        nop;
+        drop(((_1 as variant#5).2: reqwest::Client)) -> [return: bb307, unwind terminate(cleanup)];
+    }
+
+    bb307 (cleanup): {
+        nop;
+        drop(((_1 as variant#5).1: reqwest::Url)) -> [return: bb308, unwind terminate(cleanup)];
+    }
+
+    bb308 (cleanup): {
+        nop;
+        drop(((_1 as variant#5).0: std::string::String)) -> [return: bb309, unwind terminate(cleanup)];
+    }
+
+    bb309 (cleanup): {
+        nop;
+        goto -> bb399;
+    }
+
+    bb310 (cleanup): {
+        resume;
+    }
+
+    bb311 (cleanup): {
+        nop;
+        goto -> bb312;
+    }
+
+    bb312 (cleanup): {
+        StorageDead(_128);
+        StorageDead(_127);
+        StorageDead(_126);
+        goto -> bb313;
+    }
+
+    bb313 (cleanup): {
+        goto -> bb317;
+    }
+
+    bb314 (cleanup): {
+        nop;
+        StorageDead(_90);
+        StorageDead(_89);
+        goto -> bb315;
+    }
+
+    bb315 (cleanup): {
+        goto -> bb316;
+    }
+
+    bb316 (cleanup): {
+        StorageDead(_91);
+        StorageDead(_88);
+        goto -> bb317;
+    }
+
+    bb317 (cleanup): {
+        ((_1 as variant#5).8: bool) = const false;
+        StorageDead(_87);
+        goto -> bb318;
+    }
+
+    bb318 (cleanup): {
+        goto -> bb322;
+    }
+
+    bb319 (cleanup): {
+        nop;
+        _267 = const false;
+        StorageDead(_24);
+        StorageDead(_23);
+        goto -> bb320;
+    }
+
+    bb320 (cleanup): {
+        goto -> bb321;
+    }
+
+    bb321 (cleanup): {
+        StorageDead(_33);
+        StorageDead(_25);
+        StorageDead(_22);
+        goto -> bb322;
+    }
+
+    bb322 (cleanup): {
+        ((_1 as variant#5).7: bool) = const false;
+        nop;
+        nop;
+        drop(((_1 as variant#5).3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb323, unwind terminate(cleanup)];
+    }
+
+    bb323 (cleanup): {
+        nop;
+        drop(((_1 as variant#5).2: reqwest::Client)) -> [return: bb324, unwind terminate(cleanup)];
+    }
+
+    bb324 (cleanup): {
+        nop;
+        drop(((_1 as variant#5).1: reqwest::Url)) -> [return: bb325, unwind terminate(cleanup)];
+    }
+
+    bb325 (cleanup): {
+        nop;
+        drop(((_1 as variant#5).0: std::string::String)) -> [return: bb326, unwind terminate(cleanup)];
+    }
+
+    bb326 (cleanup): {
+        nop;
+        goto -> bb403;
+    }
+
+    bb327: {
+        goto -> bb17;
+    }
+
+    bb328: {
+        goto -> bb327;
+    }
+
+    bb329: {
+        goto -> bb327;
+    }
+
+    bb330: {
+        _268 = discriminant(_37);
+        switchInt(move _268) -> [0: bb328, otherwise: bb329];
+    }
+
+    bb331: {
+        goto -> bb20;
+    }
+
+    bb332: {
+        goto -> bb331;
+    }
+
+    bb333: {
+        goto -> bb331;
+    }
+
+    bb334: {
+        _271 = discriminant(_37);
+        switchInt(move _271) -> [0: bb332, otherwise: bb333];
+    }
+
+    bb335: {
+        goto -> bb32;
+    }
+
+    bb336: {
+        goto -> bb335;
+    }
+
+    bb337: {
+        goto -> bb335;
+    }
+
+    bb338: {
+        _274 = discriminant(_22);
+        switchInt(move _274) -> [0: bb336, otherwise: bb337];
+    }
+
+    bb339: {
+        goto -> bb51;
+    }
+
+    bb340: {
+        goto -> bb339;
+    }
+
+    bb341: {
+        goto -> bb339;
+    }
+
+    bb342: {
+        _277 = discriminant(_96);
+        switchInt(move _277) -> [0: bb340, otherwise: bb341];
+    }
+
+    bb343: {
+        goto -> bb54;
+    }
+
+    bb344: {
+        goto -> bb343;
+    }
+
+    bb345: {
+        goto -> bb343;
+    }
+
+    bb346: {
+        _280 = discriminant(_96);
+        switchInt(move _280) -> [0: bb344, otherwise: bb345];
+    }
+
+    bb347: {
+        goto -> bb62;
+    }
+
+    bb348: {
+        goto -> bb347;
+    }
+
+    bb349: {
+        goto -> bb347;
+    }
+
+    bb350: {
+        _283 = discriminant(_88);
+        switchInt(move _283) -> [0: bb348, otherwise: bb349];
+    }
+
+    bb351: {
+        goto -> bb78;
+    }
+
+    bb352: {
+        goto -> bb351;
+    }
+
+    bb353: {
+        goto -> bb351;
+    }
+
+    bb354: {
+        _286 = discriminant(_137);
+        switchInt(move _286) -> [0: bb352, otherwise: bb353];
+    }
+
+    bb355: {
+        goto -> bb81;
+    }
+
+    bb356: {
+        goto -> bb355;
+    }
+
+    bb357: {
+        goto -> bb355;
+    }
+
+    bb358: {
+        _289 = discriminant(_137);
+        switchInt(move _289) -> [0: bb356, otherwise: bb357];
+    }
+
+    bb359: {
+        goto -> bb153;
+    }
+
+    bb360: {
+        goto -> bb359;
+    }
+
+    bb361: {
+        goto -> bb360;
+    }
+
+    bb362: {
+        goto -> bb361;
+    }
+
+    bb363: {
+        goto -> bb362;
+    }
+
+    bb364: {
+        goto -> bb141;
+    }
+
+    bb365: {
+        goto -> bb364;
+    }
+
+    bb366: {
+        goto -> bb364;
+    }
+
+    bb367: {
+        _292 = discriminant(_88);
+        switchInt(move _292) -> [0: bb365, otherwise: bb366];
+    }
+
+    bb368: {
+        drop(((_1 as variant#5).5: reqwest::Response)) -> [return: bb148, unwind: bb300];
+    }
+
+    bb369: {
+        switchInt(copy ((_1 as variant#5).7: bool)) -> [0: bb148, otherwise: bb368];
+    }
+
+    bb370: {
+        goto -> bb146;
+    }
+
+    bb371: {
+        goto -> bb370;
+    }
+
+    bb372: {
+        goto -> bb370;
+    }
+
+    bb373: {
+        _295 = discriminant(_22);
+        switchInt(move _295) -> [0: bb371, otherwise: bb372];
+    }
+
+    bb374: {
+        goto -> bb153;
+    }
+
+    bb375: {
+        goto -> bb374;
+    }
+
+    bb376: {
+        goto -> bb375;
+    }
+
+    bb377: {
+        goto -> bb376;
+    }
+
+    bb378: {
+        goto -> bb377;
+    }
+
+    bb379: {
+        goto -> bb177;
+    }
+
+    bb380: {
+        goto -> bb379;
+    }
+
+    bb381: {
+        goto -> bb380;
+    }
+
+    bb382: {
+        goto -> bb381;
+    }
+
+    bb383: {
+        goto -> bb382;
+    }
+
+    bb384 (cleanup): {
+        drop(_87) -> [return: bb259, unwind terminate(cleanup)];
+    }
+
+    bb385 (cleanup): {
+        switchInt(copy ((_1 as variant#5).8: bool)) -> [0: bb259, otherwise: bb384];
+    }
+
+    bb386 (cleanup): {
+        goto -> bb253;
+    }
+
+    bb387 (cleanup): {
+        goto -> bb253;
+    }
+
+    bb388 (cleanup): {
+        _298 = discriminant(_88);
+        switchInt(move _298) -> [0: bb386, otherwise: bb387];
+    }
+
+    bb389 (cleanup): {
+        drop(((_1 as variant#5).5: reqwest::Response)) -> [return: bb300, unwind terminate(cleanup)];
+    }
+
+    bb390 (cleanup): {
+        switchInt(copy ((_1 as variant#5).7: bool)) -> [0: bb300, otherwise: bb389];
+    }
+
+    bb391 (cleanup): {
+        goto -> bb288;
+    }
+
+    bb392 (cleanup): {
+        goto -> bb288;
+    }
+
+    bb393 (cleanup): {
+        _299 = discriminant(_22);
+        switchInt(move _299) -> [0: bb391, otherwise: bb392];
+    }
+
+    bb394 (cleanup): {
+        drop(_24) -> [return: bb286, unwind terminate(cleanup)];
+    }
+
+    bb395 (cleanup): {
+        switchInt(copy _267) -> [0: bb286, otherwise: bb394];
+    }
+
+    bb396 (cleanup): {
+        goto -> bb310;
+    }
+
+    bb397 (cleanup): {
+        goto -> bb396;
+    }
+
+    bb398 (cleanup): {
+        goto -> bb397;
+    }
+
+    bb399 (cleanup): {
+        goto -> bb398;
+    }
+
+    bb400 (cleanup): {
+        goto -> bb310;
+    }
+
+    bb401 (cleanup): {
+        goto -> bb400;
+    }
+
+    bb402 (cleanup): {
+        goto -> bb401;
+    }
+
+    bb403 (cleanup): {
+        goto -> bb402;
+    }
+
+    bb404: {
+        return;
+    }
+
+    bb405: {
+        goto -> bb414;
+    }
+
+    bb406: {
+        goto -> bb404;
+    }
+
+    bb407 (cleanup): {
+        drop((_1.3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb310, unwind terminate(cleanup)];
+    }
+
+    bb408 (cleanup): {
+        drop((_1.2: reqwest::Client)) -> [return: bb407, unwind terminate(cleanup)];
+    }
+
+    bb409 (cleanup): {
+        drop((_1.1: reqwest::Url)) -> [return: bb408, unwind terminate(cleanup)];
+    }
+
+    bb410 (cleanup): {
+        drop((_1.0: std::string::String)) -> [return: bb409, unwind terminate(cleanup)];
+    }
+
+    bb411: {
+        drop((_1.3: tokio::sync::mpsc::Sender<(std::string::String, std::string::String)>)) -> [return: bb406, unwind: bb310];
+    }
+
+    bb412: {
+        drop((_1.2: reqwest::Client)) -> [return: bb411, unwind: bb407];
+    }
+
+    bb413: {
+        drop((_1.1: reqwest::Url)) -> [return: bb412, unwind: bb408];
+    }
+
+    bb414: {
+        drop((_1.0: std::string::String)) -> [return: bb413, unwind: bb409];
+    }
+}
+
+alloc23 (size: 58, align: 1) {
+    0x00 │ 07 6e 61 6d 65 20 3d 20 c0 10 20 64 65 6c 61 79 │ .name = .. delay
+    0x10 │ 5f 6d 69 6c 6c 69 73 20 3d 20 c0 0c 20 20 6d 65 │ _millis = ..  me
+    0x20 │ 6d 5f 75 73 65 20 3d 20 c0 0c 20 76 6d 65 6d 5f │ m_use = .. vmem_
+    0x30 │ 75 73 65 20 3d 20 c0 01 0a 00                   │ use = ....
+}
+
+alloc22 (size: 45, align: 1) {
+    0x00 │ c0 2a 20 e6 9c aa e5 be 97 e5 88 b0 e5 86 85 e5 │ .* .............
+    0x10 │ ad 98 e4 bd bf e7 94 a8 ef bc 8c e7 9d a1 e7 9c │ ................
+    0x20 │ a0 31 e7 a7 92 ef bc 81 ef bc 81 0a 00          │ .1...........
+}
+
+alloc21 (size: 65, align: 1) {
+    0x00 │ 16 e5 87 bd e6 95 b0 63 72 61 77 6c 2c 20 e5 90 │ .......crawl, ..
+    0x10 │ 8d e7 a7 b0 ef bc 9a c0 27 ef bc 9a 20 e7 ac ac │ ........'... ...
+    0x20 │ e4 b8 89 e6 ac a1 2e 61 77 61 69 74 28 73 65 6e │ .......await(sen
+    0x30 │ 64 65 72 2e 73 65 6e 64 29 e4 b9 8b e5 90 8e 0a │ der.send).......
+    0x40 │ 00                                              │ .
+}
+
+alloc20 (size: 35, align: 1) {
+    0x00 │ 46 61 69 6c 65 64 20 74 6f 20 73 65 6e 64 20 72 │ Failed to send r
+    0x10 │ 65 73 70 6f 6e 73 65 20 74 6f 20 63 68 61 6e 6e │ esponse to chann
+    0x20 │ 65 6c 2e                                        │ el.
+}
+
+alloc19 (size: 30, align: 1) {
+    0x00 │ 19 72 65 63 65 69 76 65 72 20 44 72 6f 70 65 64 │ .receiver Droped
+    0x10 │ 20 66 6f 72 20 6e 61 6d 65 3d c0 01 0a 00       │  for name=....
+}
+
+alloc18 (size: 67, align: 1) {
+    0x00 │ 16 e5 87 bd e6 95 b0 63 72 61 77 6c 2c 20 e5 90 │ .......crawl, ..
+    0x10 │ 8d e7 a7 b0 ef bc 9a c0 29 ef bc 9a 20 e7 ac ac │ ........)... ...
+    0x20 │ e4 ba 8c e6 ac a1 2e 61 77 61 69 74 28 72 65 73 │ .......await(res
+    0x30 │ 70 6f 6e 73 65 2e 74 65 78 74 29 e4 b9 8b e5 90 │ ponse.text).....
+    0x40 │ 8e 0a 00                                        │ ...
+}
+
+alloc17 (size: 29, align: 1) {
+    0x00 │ 46 61 69 6c 65 64 20 74 6f 20 72 65 61 64 20 72 │ Failed to read r
+    0x10 │ 65 73 70 6f 6e 73 65 20 62 6f 64 79 2e          │ esponse body.
+}
+
+alloc16 (size: 23, align: 1) {
+    0x00 │ 46 61 69 6c 65 64 20 74 6f 20 66 65 74 63 68 20 │ Failed to fetch 
+    0x10 │ 77 65 62 73 69 74 65                            │ website
+}
+
+alloc15 (size: 68, align: 1) {
+    0x00 │ 16 e5 87 bd e6 95 b0 63 72 61 77 6c 2c 20 e5 90 │ .......crawl, ..
+    0x10 │ 8d e7 a7 b0 ef bc 9a c0 2a ef bc 9a 20 e7 ac ac │ ........*... ...
+    0x20 │ e4 b8 80 e6 ac a1 2e 61 77 61 69 74 ef bc 88 63 │ .......await...c
+    0x30 │ 6c 69 65 6e 74 2e 67 65 74 ef bc 89 e4 b9 8b e5 │ lient.get.......
+    0x40 │ 90 8e 0a 00                                     │ ....
+}
+
+alloc14 (size: 24, align: 1) {
+    0x00 │ 15 46 61 69 6c 65 64 20 74 6f 20 66 65 74 63 68 │ .Failed to fetch
+    0x10 │ 20 55 52 4c 3a 20 c0 00                         │  URL: ..
+}
+
+alloc13 (size: 10, align: 1) {
+    55 73 65 72 2d 41 67 65 6e 74                   │ User-Agent
+}
+
+alloc12 (size: 43, align: 1) {
+    0x00 │ 16 e5 87 bd e6 95 b0 63 72 61 77 6c 2c 20 e5 90 │ .......crawl, ..
+    0x10 │ 8d e7 a7 b0 ef bc 9a c0 11 ef bc 9a 20 e5 bc 80 │ ............ ...
+    0x20 │ e5 a7 8b e8 bf 9b e5 85 a5 0a 00                │ ...........
+}
+
+alloc11 (static: USER_AGENT, size: 16, align: 8) {
+    ╾────alloc24<imm>─────╼ 50 00 00 00 00 00 00 00 │ ╾──────╼P.......
+}
+
+alloc24 (size: 80, align: 1) {
+    0x00 │ 4d 6f 7a 69 6c 6c 61 2f 35 2e 30 20 28 57 69 6e │ Mozilla/5.0 (Win
+    0x10 │ 64 6f 77 73 20 4e 54 20 31 30 2e 30 3b 20 57 69 │ dows NT 10.0; Wi
+    0x20 │ 6e 36 34 3b 20 78 36 34 3b 20 72 76 3a 31 34 38 │ n64; x64; rv:148
+    0x30 │ 2e 30 29 20 47 65 63 6b 6f 2f 32 30 31 30 30 31 │ .0) Gecko/201001
+    0x40 │ 30 31 20 46 69 72 65 66 6f 78 2f 31 34 38 2e 30 │ 01 Firefox/148.0
+}

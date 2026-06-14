@@ -1,0 +1,18 @@
+[package]
+name = "crawler_async"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = {version = "1", features = ["full"]}
+reqwest = {version = "0.11", features = ["json", "rustls-tls", "stream"]}
+url = "2.5"
+anyhow = {version = "1.0", features = ["std"]}
+futures-util = "0.3"
+sysinfo = "0.39"
+
+[profile.dev]
+debug = 2          # 对应 -g (生成完整调试信息)
+opt-level = 0      # 关闭优化，防止变量被优化掉
+lto = false        # 关闭链接时优化，保留更多符号信息
+debuginfo = 2

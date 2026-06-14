@@ -1,15 +1,29 @@
 use std::future::Future;
-
 use std::pin::Pin;
+use clap::Parser;
 
 use std::sync::atomic::Ordering::{Relaxed, Release};
 use std::task::{Poll, Context};
 use std::task::{RawWaker, RawWakerVTable, Waker};
 use std::collections::{HashMap};
 use std::thread::sleep;
-//use std::thread::sleep;
 use std::time::{Duration, Instant};
 use core::sync::atomic::AtomicUsize;
+
+/// 参数的命令行工具
+#[derive(Parser, Debug)]
+#[command(name = "priority100loc")]
+#[command(about = "通过命令行设置任务优先级及是否启用延迟", long_about = None)]
+struct Cli {
+    /// 优先级列表，支持逗号分隔 (例如: --prio 101,102,103)
+    #[arg(long, value_delimiter = ',', num_args = 6, allow_hyphen_values = true, default_values_t = vec![0, 0, 0, 0, 0, 0])]
+    prio: Vec<isize>,
+
+    /// 任务1是否启用延迟
+    #[arg(short, long, default_value_t = false)]
+    delay_task_one: bool,
+}
+
 
 enum State {
     Halted,
@@ -170,6 +184,14 @@ unsafe fn wake_by_ref(_: *const ()) { }
 unsafe fn drop(_: *const ()) { }
 
 fn main() {
+    // 解析命令行参数
+    let cli = Cli::parse();
+    // 从命令行获取优先级
+    let prios = cli.prio;
+    println!("priority is: {:?}", &prios);
+    // 任务1是否启用睡眠
+    let task1_sleep = cli.delay_task_one;
+
     let mut exec = Executor::new();
     exec.init();
 
@@ -178,10 +200,10 @@ fn main() {
     exec.push(move |mut fib| async move {
         loop {
             arc1_clone.fetch_add(1, Release);
-            sleep(Duration::from_millis(50));
+            if task1_sleep {sleep(Duration::from_micros(50));}
             fib.waiter().await;
         }
-    }, 0);   
+    }, prios[0]);   
 
     let arc_task2 = Arc::new(AtomicUsize::new(0));
     let arc2_clone = arc_task2.clone();
@@ -191,7 +213,7 @@ fn main() {
             //sleep(Duration::from_millis(20));
             fib.waiter().await;
         }
-    }, 0);
+    }, prios[1]);
 
     let arc_task3 = Arc::new(AtomicUsize::new(0));
     let arc3_clone = arc_task3.clone();
@@ -200,7 +222,7 @@ fn main() {
             arc3_clone.fetch_add(1, Release);
             fib.waiter().await;
         }
-    }, 0);
+    }, prios[2]);
 
     let arc_task4 = Arc::new(AtomicUsize::new(0));
     let arc4_clone = arc_task4.clone();
@@ -209,7 +231,7 @@ fn main() {
             arc4_clone.fetch_add(1, Release);
             fib.waiter().await;
         }
-    }, 0);
+    }, prios[3]);
 
     let arc_task5 = Arc::new(AtomicUsize::new(0));
     let arc5_clone = arc_task5.clone();
@@ -218,7 +240,7 @@ fn main() {
             arc5_clone.fetch_add(1, Release);
             fib.waiter().await;
         }
-    }, 0);
+    }, prios[4]);
 
     let arc_task6 = Arc::new(AtomicUsize::new(0));
     let arc6_clone = arc_task6.clone();
@@ -227,7 +249,7 @@ fn main() {
             arc6_clone.fetch_add(1, Release);
             fib.waiter().await;
         }
-    }, 0);
+    }, prios[5]);
 
     println!("Running");
     exec.run();
